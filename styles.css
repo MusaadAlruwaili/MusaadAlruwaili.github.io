@@ -40,6 +40,14 @@ a {
   text-decoration: none;
 }
 
+.inline-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--blue);
+  font-weight: 800;
+  border-bottom: 2px solid var(--green);
+}
+
 .site-header {
   position: sticky;
   top: 0;
