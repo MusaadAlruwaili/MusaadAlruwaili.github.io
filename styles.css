@@ -10,7 +10,9 @@
   --green: #1f9d55;
   --green-soft: #dff6e9;
   --gold: #c49a3a;
+  --cyan: #33c7d6;
   --shadow: 0 18px 50px rgba(6, 26, 51, 0.12);
+  --shadow-strong: 0 26px 70px rgba(6, 26, 51, 0.18);
   --radius: 8px;
 }
 
@@ -28,6 +30,11 @@ body {
   background: var(--paper);
   font-family: Inter, Arial, sans-serif;
   line-height: 1.6;
+}
+
+body.ar {
+  direction: rtl;
+  font-family: "Noto Naskh Arabic", Inter, Arial, sans-serif;
 }
 
 img {
@@ -48,6 +55,10 @@ a {
   border-bottom: 2px solid var(--green);
 }
 
+.inline-link:hover {
+  color: var(--green);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -60,6 +71,17 @@ a {
   background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), var(--cyan), transparent);
+  opacity: 0.55;
 }
 
 .brand {
@@ -90,6 +112,12 @@ a {
   color: var(--ink-soft);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .site-nav a {
   padding: 8px 0;
   border-bottom: 2px solid transparent;
@@ -98,6 +126,23 @@ a {
 .site-nav a:hover {
   color: var(--blue);
   border-color: var(--green);
+}
+
+.language-toggle {
+  min-height: 38px;
+  padding: 0 14px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  box-shadow: 0 10px 28px rgba(0, 59, 113, 0.2);
+}
+
+.language-toggle:hover {
+  transform: translateY(-1px);
 }
 
 .nav-toggle {
@@ -124,6 +169,8 @@ a {
 
 .section-band {
   background:
+    radial-gradient(circle at 18% 24%, rgba(31, 157, 85, 0.12), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(51, 199, 214, 0.12), transparent 23%),
     linear-gradient(90deg, rgba(0, 59, 113, 0.04) 1px, transparent 1px),
     linear-gradient(rgba(31, 157, 85, 0.04) 1px, transparent 1px),
     var(--mist);
@@ -151,6 +198,11 @@ a {
   text-transform: uppercase;
 }
 
+body.ar .eyebrow {
+  text-transform: none;
+  font-size: 0.92rem;
+}
+
 h1,
 h2,
 h3 {
@@ -167,6 +219,12 @@ h1 {
   max-width: 680px;
   font-size: clamp(3rem, 6vw, 5.9rem);
   color: var(--blue-deep);
+}
+
+body.ar h1,
+body.ar h2 {
+  font-family: "Noto Naskh Arabic", Georgia, serif;
+  line-height: 1.25;
 }
 
 h2 {
@@ -229,7 +287,7 @@ h3 {
 
 .button.primary {
   color: #fff;
-  background: var(--blue);
+  background: linear-gradient(135deg, var(--blue), #005f8f);
 }
 
 .button.secondary {
@@ -245,6 +303,16 @@ h3 {
   overflow: hidden;
   background: var(--blue-deep);
   box-shadow: var(--shadow);
+}
+
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(6, 26, 51, 0.16), transparent 52%),
+    radial-gradient(circle at 78% 25%, rgba(31, 157, 85, 0.28), transparent 24%);
+  pointer-events: none;
 }
 
 .banner-image {
@@ -269,6 +337,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 8px;
   backdrop-filter: blur(10px);
+  z-index: 2;
 }
 
 .profile-card img {
@@ -291,6 +360,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, 34px);
   gap: 10px;
+  z-index: 2;
 }
 
 .signal-grid span {
@@ -314,6 +384,13 @@ h3 {
   padding: 24px;
   background: #fff;
   border: 1px solid var(--line);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.metrics-strip div:hover {
+  transform: translateY(-4px);
+  border-color: rgba(31, 157, 85, 0.35);
+  box-shadow: var(--shadow);
 }
 
 .metrics-strip strong,
@@ -354,6 +431,20 @@ h3 {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.lead-panel:hover,
+.expertise-panel:hover,
+.research-grid article:hover,
+.publication-list article:hover,
+.project-card:hover,
+.teaching-grid > div:hover,
+.blog-grid article:hover,
+.timeline article:hover {
+  transform: translateY(-5px);
+  border-color: rgba(31, 157, 85, 0.38);
+  box-shadow: var(--shadow);
 }
 
 .lead-panel {
@@ -416,6 +507,21 @@ h3 {
 
 .research-grid article {
   padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.research-grid article::before,
+.publication-list article::before,
+.blog-grid article::before,
+.timeline article::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 3px;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  border-radius: 999px;
 }
 
 .card-index {
@@ -436,6 +542,13 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 6px;
   font-weight: 800;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.profile-links a:hover {
+  color: #fff;
+  background: var(--blue);
+  transform: translateY(-2px);
 }
 
 .pub-stats {
@@ -445,7 +558,9 @@ h3 {
 
 .pub-stats div {
   padding: 26px;
-  background: var(--blue-deep);
+  background:
+    radial-gradient(circle at 88% 18%, rgba(31, 157, 85, 0.35), transparent 28%),
+    linear-gradient(135deg, var(--blue-deep), #08284c);
   color: #fff;
   border-radius: var(--radius);
 }
@@ -501,6 +616,7 @@ h3 {
   grid-column: span 3;
   gap: 24px;
   align-items: center;
+  background: linear-gradient(135deg, #fff, #f8fbfd);
 }
 
 .project-visual {
@@ -517,6 +633,13 @@ h3 {
   height: 100%;
   min-height: 320px;
   margin-bottom: 0;
+}
+
+.project-card h3,
+.publication-list h3,
+.blog-grid h3,
+.timeline h3 {
+  margin-top: 4px;
 }
 
 .teaching-grid {
@@ -552,7 +675,9 @@ h3 {
 
 .contact-section {
   align-items: start;
-  background: var(--blue-deep);
+  background:
+    radial-gradient(circle at 88% 18%, rgba(31, 157, 85, 0.22), transparent 28%),
+    linear-gradient(135deg, var(--blue-deep), #03101e 72%);
   color: #fff;
 }
 
@@ -586,6 +711,16 @@ h3 {
   border-radius: 6px;
   color: var(--ink);
   font: inherit;
+  background: #fbfdff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 0;
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(31, 157, 85, 0.12);
 }
 
 .contact-form textarea {
@@ -641,8 +776,26 @@ h3 {
     border-bottom: 1px solid var(--line);
   }
 
+  .header-actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 76px;
+    pointer-events: none;
+  }
+
   .site-nav.open {
     display: flex;
+    pointer-events: auto;
+  }
+
+  .language-toggle {
+    position: fixed;
+    right: 5vw;
+    bottom: 18px;
+    z-index: 80;
+    min-height: 44px;
+    pointer-events: auto;
   }
 
   .hero-grid,
@@ -664,6 +817,49 @@ h3 {
 
   .profile-links {
     margin-top: 20px;
+  }
+}
+
+body.ar .brand,
+body.ar .site-nav,
+body.ar .hero-actions,
+body.ar .profile-card,
+body.ar .profile-links,
+body.ar .project-meta,
+body.ar .contact-tags,
+body.ar .link-row,
+body.ar .site-footer {
+  direction: rtl;
+}
+
+body.ar .profile-card {
+  left: auto;
+  right: 26px;
+}
+
+body.ar .signal-grid {
+  right: auto;
+  left: 28px;
+}
+
+body.ar .section-heading.split {
+  flex-direction: row-reverse;
+}
+
+body.ar .contact-form input,
+body.ar .contact-form select,
+body.ar .contact-form textarea {
+  direction: rtl;
+}
+
+body.ar .inline-link {
+  font-family: "Noto Naskh Arabic", Inter, Arial, sans-serif;
+}
+
+@media (max-width: 680px) {
+  body.ar .profile-card {
+    right: 16px;
+    left: auto;
   }
 }
 
