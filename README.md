@@ -55,6 +55,6 @@ The homepage contact form submits through FormSubmit:
 https://formsubmit.co/ajax/eng.musaad1@gmail.com
 ```
 
-The first live submission may trigger a FormSubmit activation email. Confirm that email so future messages are delivered. If the form service rejects a message, the page shows a direct email fallback.
+
 
 
