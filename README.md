@@ -2,15 +2,6 @@
 
 Static engineering publication hub for Dr. Musaad Alruwaili.
 
-## Publish With GitHub Pages
-
-Recommended repository name for a personal GitHub Pages site:
-
-```text
-MusaadAlruwaili.github.io
-```
-
-After uploading these files to that repository, the site will be available at:
 
 ```text
 https://musaadalruwaili.github.io/
