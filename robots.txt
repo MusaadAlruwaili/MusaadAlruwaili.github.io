@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://musaadalruwaili.github.io/sitemap.xml
