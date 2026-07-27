@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dr. Musaad Alruwaili Engineering Articles</title>
+    <link>https://musaadalruwaili.github.io/blog/</link>
+    <atom:link href="https://musaadalruwaili.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Engineering articles on smart grids, SCADA, IoT, Arduino, AI, 5G/6G, MATLAB, Python, and IEEE research writing.</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 27 Jul 2026 09:30:00 +0300</lastBuildDate>
+    <item>
+      <title>How AI is Changing Smart Grids</title>
+      <link>https://musaadalruwaili.github.io/blog/ai-smart-grid.html</link>
+      <guid>https://musaadalruwaili.github.io/blog/ai-smart-grid.html</guid>
+      <pubDate>Mon, 27 Jul 2026 09:30:00 +0300</pubDate>
+      <category>Smart Grids</category>
+      <description>How AI can help engineers forecast demand, detect anomalies, prioritize maintenance, and operate smarter distribution grids.</description>
+    </item>
+    <item>
+      <title>Arduino Tutorial: Control a Relay with ESP32</title>
+      <link>https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html</link>
+      <guid>https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html</guid>
+      <pubDate>Mon, 27 Jul 2026 09:30:00 +0300</pubDate>
+      <category>Arduino</category>
+      <description>A practical ESP32 relay-control tutorial for safer beginner automation projects.</description>
+    </item>
+    <item>
+      <title>IEEE Access Paper Tips</title>
+      <link>https://musaadalruwaili.github.io/blog/ieee-paper-writing-tips.html</link>
+      <guid>https://musaadalruwaili.github.io/blog/ieee-paper-writing-tips.html</guid>
+      <pubDate>Mon, 27 Jul 2026 09:30:00 +0300</pubDate>
+      <category>Research Writing</category>
+      <description>Practical structure and clarity tips for writing engineering papers for IEEE-style publication venues.</description>
+    </item>
+    <item>
+      <title>MATLAB vs Python for Engineers</title>
+      <link>https://musaadalruwaili.github.io/blog/matlab-vs-python-engineers.html</link>
+      <guid>https://musaadalruwaili.github.io/blog/matlab-vs-python-engineers.html</guid>
+      <pubDate>Mon, 27 Jul 2026 09:30:00 +0300</pubDate>
+      <category>Engineering Tools</category>
+      <description>How to choose between MATLAB and Python for simulation, research, data analysis, and engineering automation.</description>
+    </item>
+    <item>
+      <title>Beginner Guide to SCADA</title>
+      <link>https://musaadalruwaili.github.io/blog/beginner-guide-to-scada.html</link>
+      <guid>https://musaadalruwaili.github.io/blog/beginner-guide-to-scada.html</guid>
+      <pubDate>Mon, 27 Jul 2026 09:30:00 +0300</pubDate>
+      <category>SCADA</category>
+      <description>A beginner-friendly guide to SCADA systems from field device to control room.</description>
+    </item>
+    <item>
+      <title>AI in 6G Networks</title>
+      <link>https://musaadalruwaili.github.io/blog/ai-in-6g-networks.html</link>
+      <guid>https://musaadalruwaili.github.io/blog/ai-in-6g-networks.html</guid>
+      <pubDate>Mon, 27 Jul 2026 09:30:00 +0300</pubDate>
+      <category>6G</category>
+      <description>How AI may support future 6G networks through intelligent sensing, resource allocation, security, and edge coordination.</description>
+    </item>
+  </channel>
+</rss>
