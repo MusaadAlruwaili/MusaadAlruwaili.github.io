@@ -57,16 +57,4 @@ https://formsubmit.co/ajax/eng.musaad1@gmail.com
 
 The first live submission may trigger a FormSubmit activation email. Confirm that email so future messages are delivered. If the form service rejects a message, the page shows a direct email fallback.
 
-## AdSense Resubmission Notes
 
-- Upload all files directly into the repository root, not inside an extra folder.
-- Confirm `https://musaadalruwaili.github.io/ads.txt` is still reachable after upload.
-- Confirm the live homepage no longer shows the old visitor counter or outdated contact button text.
-- Confirm the contact form can submit after the FormSubmit activation email is approved.
-- After the updated site is live, return to AdSense, tick `I confirm I have fixed the issues`, and request review.
-
-## Future Maintenance
-
-- Add new original engineering articles regularly.
-- Add downloadable templates or code files only when they are complete and useful.
-- Update domain settings if using a custom domain.
