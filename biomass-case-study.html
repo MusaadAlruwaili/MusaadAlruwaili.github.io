@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biomass Energy Generator Case Study | Dr. Musaad Alruwaili</title>
+  <meta name="description" content="Case study of a biomass energy-source generator and remote monitoring project using LabVIEW, sensors, data acquisition, torrefaction, pelletization, and EPA P3 sustainability work.">
+  <meta name="google-adsense-account" content="ca-pub-1892379836098889">
+  <link rel="canonical" href="https://musaadalruwaili.github.io/biomass-case-study.html">
+  <link rel="alternate" type="application/rss+xml" title="Dr. Musaad Alruwaili Engineering Articles" href="https://musaadalruwaili.github.io/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Biomass Energy Generator Case Study">
+  <meta property="og:description" content="Challenge, role, system architecture, LabVIEW interface, hardware, results, and lessons from an EPA P3 biomass monitoring project.">
+  <meta property="og:image" content="https://musaadalruwaili.github.io/assets/project-biomass.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260727-ar">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Biomass Energy-Source Generator and Remote Monitoring Case Study",
+    "author": {"@type": "Person", "name": "Dr. Musaad Alruwaili"},
+    "dateModified": "2026-07-27",
+    "image": "https://musaadalruwaili.github.io/assets/project-biomass.jpg",
+    "mainEntityOfPage": "https://musaadalruwaili.github.io/biomass-case-study.html"
+  }
+  </script>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">MA</span><span>Dr. Musaad Alruwaili</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="header-actions"><nav class="site-nav" aria-label="Primary navigation"><a href="index.html#topics">Topics</a><a href="research.html">Research</a><a href="projects.html">Projects</a><a href="blog/index.html">Blog</a><a href="resources/index.html">Resources</a><a href="index.html#contact">Contact</a></nav><a class="language-toggle translate-link" href="https://translate.google.com/translate?sl=en&amp;tl=ar&amp;u=https%3A%2F%2Fmusaadalruwaili.github.io%2F" data-translate-page lang="ar" hreflang="ar" target="_blank" rel="noopener noreferrer" aria-label="Read this page in Arabic">العربية</a></div>
+  </header>
+
+  <main>
+    <section class="article-hero case-hero">
+      <p class="eyebrow">Case Study</p>
+      <h1>Biomass energy-source generator with remote control and monitoring.</h1>
+      <p class="hero-text">A Gannon University EPA P3 project converting agricultural waste into renewable fuel while connecting prototype hardware to a LabVIEW monitoring interface.</p>
+      <div class="article-meta"><span>EPA P3 Phase I</span><span>Gannon University</span><span>LabVIEW Â· DAQ Â· Sensors</span></div>
+    </section>
+
+    <section class="section case-study-layout">
+      <aside class="article-toc" aria-label="Case study contents">
+        <h2>Contents</h2>
+        <ol id="articleToc"></ol>
+      </aside>
+      <div class="case-study-content">
+        <picture>
+          <source srcset="assets/project-biomass.webp" type="image/webp">
+          <img class="case-photo" src="assets/project-biomass.jpg" loading="lazy" alt="Biomass fuel pellets, grape pomace, and renewable fuel prototype material">
+        </picture>
+
+        <article class="article-card">
+          <h2>Challenge</h2>
+          <p>Agricultural waste can be difficult to manage, but it also represents stored energy. The project explored how grape pomace and related biomass material could be converted into a useful solid fuel through torrefaction and pelletization. The engineering challenge was not only the thermal and mechanical process; the prototype also needed a way to observe, control, and demonstrate the system reliably.</p>
+        </article>
+
+        <article class="article-card">
+          <h2>My Role</h2>
+          <p>I focused on the monitoring and control system. I was assigned to create a LabVIEW program to monitor and control the machine. The interface connected process status, sensor readings, and operator commands into one environment so the team could test, demonstrate, and explain the prototype more clearly.</p>
+          <p>This work helped connect the physical machine with a user-friendly control interface, making it easier to operate, observe, and discuss with judges and visitors at the EPA National Sustainable Design Expo in Washington, D.C.</p>
+        </article>
+
+        <article class="article-card">
+          <h2>System Architecture</h2>
+          <div class="system-flow case-flow" aria-label="System architecture diagram">
+            <span>Grape pomace</span>
+            <span>Torrefaction</span>
+            <span>Pelletization</span>
+            <span>Sensors</span>
+            <span>DAQ hardware</span>
+            <span>LabVIEW HMI</span>
+          </div>
+          <p>The architecture can be understood as a chain from material handling to operator visibility. Biomass material enters the process, the prototype performs thermal and mechanical treatment, sensors collect system behavior, data acquisition hardware routes signals, and the LabVIEW interface displays the information for monitoring and control.</p>
+        </article>
+
+        <article class="article-card">
+          <h2>LabVIEW Interface</h2>
+          <figure>
+            <img src="assets/project-labview-dashboard.jpg" loading="lazy" alt="LabVIEW-style monitoring dashboard for biomass machine controls, gauges, and sensor trends">
+            <figcaption>Monitoring dashboard concept for operator-facing controls, gauges, and sensor trends.</figcaption>
+          </figure>
+          <p>The LabVIEW interface was designed around practical visibility. A good prototype interface should answer simple questions quickly: What is the machine doing? Which measurements are changing? Is the process stable? Which control actions are available? These questions guided the monitoring and control workflow.</p>
+        </article>
+
+        <article class="article-card">
+          <h2>Hardware</h2>
+          <figure>
+            <img src="assets/project-control-hardware.jpg" loading="lazy" alt="Data acquisition and control hardware wired to sensors and relay outputs for the biomass prototype">
+            <figcaption>DAQ and control hardware connecting field signals to the monitoring program.</figcaption>
+          </figure>
+          <p>The control hardware served as the bridge between the physical prototype and the software interface. This included sensor wiring, signal acquisition, control outputs, and the practical work of making measurements visible enough for test and demonstration.</p>
+        </article>
+
+        <article class="article-card">
+          <h2>Results</h2>
+          <p>The project produced a working sustainability prototype concept and a monitoring interface that made the machine easier to operate and explain. It also created a strong engineering learning experience: renewable fuel processing, multidisciplinary teamwork, control interface design, field wiring, data acquisition, and public technical presentation.</p>
+          <div class="pub-buttons">
+            <a href="https://cfpub.epa.gov/ncer_abstracts/index.cfm/fuseaction/display.abstractDetail/abstract_id/9577/report/F">EPA project record</a>
+            <a href="https://cfpub.epa.gov/ncer_abstracts/index.cfm/fuseaction/display.investigatorInfo/investigator/16225">EPA investigator record</a>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <h2>Lessons Learned</h2>
+          <ul>
+            <li>Prototype engineering depends on clear monitoring as much as mechanical design.</li>
+            <li>Operator interfaces should make process behavior understandable, not just display numbers.</li>
+            <li>Renewable-energy systems become more valuable when sensing, control, and communication are designed from the beginning.</li>
+            <li>Public demonstrations require technical accuracy and clear storytelling.</li>
+          </ul>
+          <div class="article-nav"><a class="button primary" href="projects.html">Back to Projects</a><a class="button secondary" href="index.html#contact">Discuss Collaboration</a></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><p>Dr. Musaad Alruwaili</p><div class="footer-meta"><span>Smart Energy Systems | Renewable Energy | AI | IoT</span><a href="publications.html">Publications</a><a href="experience.html">Experience</a><a href="education.html">Education</a><a href="teaching.html">Teaching</a><a href="about-this-site.html">About This Site</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy-policy.html">Privacy Policy</a></div></footer>
+  <script src="script.js?v=20260727-ar"></script>
+</body>
+</html>
+
+
