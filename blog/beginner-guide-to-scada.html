@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner Guide to SCADA | Dr. Musaad Alruwaili</title>
+  <meta name="description" content="A beginner guide to SCADA systems covering PLCs, RTUs, telemetry, HMIs, historian data, alarms, cybersecurity, and practical electrical engineering workflows.">
+  <meta name="google-adsense-account" content="ca-pub-1892379836098889">
+  <link rel="canonical" href="https://musaadalruwaili.github.io/blog/beginner-guide-to-scada.html">
+  <link rel="alternate" type="application/rss+xml" title="Dr. Musaad Alruwaili Engineering Articles" href="https://musaadalruwaili.github.io/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Beginner Guide to SCADA">
+  <meta property="og:description" content="A practical SCADA guide covering PLCs, RTUs, telemetry, HMIs, historian data, alarms, and cybersecurity.">
+  <meta property="og:image" content="https://musaadalruwaili.github.io/assets/experience-scada.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Beginner Guide to SCADA","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-07-01","dateModified":"2026-07-27","image":"https://musaadalruwaili.github.io/assets/experience-scada.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/beginner-guide-to-scada.html"}
+  </script>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="../index.html"><span class="brand-mark">MA</span><span>Dr. Musaad Alruwaili</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html#topics">Topics</a><a href="../research.html">Research</a><a href="../projects.html">Projects</a><a href="index.html">Blog</a><a href="../resources/index.html">Resources</a><a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <p class="eyebrow">SCADA Basics</p>
+      <h1>Beginner Guide to SCADA</h1>
+      <p class="hero-text">SCADA connects field equipment, communication networks, operators, and engineering data so industrial systems can be monitored and controlled safely.</p>
+      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Updated July 27, 2026</span><span>8 min read</span><span>SCADA</span><span>Industrial automation</span></div>
+    </section>
+    <section class="article-tools">
+      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"></ol></aside>
+    </section>
+
+    <section class="article-layout">
+      <article class="article-card">
+        <h2>What SCADA means</h2>
+        <p>SCADA stands for supervisory control and data acquisition. The phrase is technical, but the purpose is straightforward: collect data from field devices, display it to operators, record it for analysis, and support control actions when needed. SCADA systems are used in power networks, water systems, oil and gas facilities, manufacturing plants, transportation infrastructure, and many other industrial environments.</p>
+        <p>A SCADA system is not one device. It is an architecture. Sensors and instruments measure the physical process. Controllers and remote units collect those signals. Communication links carry data to control rooms. Human-machine interfaces show the status of equipment. Historians store time-series data. Alarm systems notify operators when something needs attention.</p>
+      </article>
+
+      <article class="article-card">
+        <h2>Main building blocks</h2>
+        <ul>
+          <li><strong>Field devices:</strong> instruments, meters, switches, relays, breakers, valves, pumps, motors, and sensors.</li>
+          <li><strong>PLCs:</strong> programmable logic controllers that execute control logic close to the process.</li>
+          <li><strong>RTUs:</strong> remote terminal units often used where equipment is distributed across large geographic areas.</li>
+          <li><strong>Communication networks:</strong> wired, fiber, radio, cellular, or IP-based links that move operational data.</li>
+          <li><strong>HMI screens:</strong> operator displays that show process status, alarms, trends, and control options.</li>
+          <li><strong>Historian:</strong> a database optimized for time-stamped operational data.</li>
+        </ul>
+        <p>For beginners, it helps to imagine a simple substation. Current and voltage measurements are collected from meters. Breaker status is monitored. A controller or RTU sends data to the control center. Operators see the equipment state on a screen and can respond to alarms. The historian stores measurements so engineers can later review events and performance.</p>
+      </article>
+
+      <article class="article-card">
+        <h2>SCADA is about visibility</h2>
+        <p>The first value of SCADA is visibility. Without reliable monitoring, engineers and operators must depend on manual inspection or delayed reports. With SCADA, the system can show equipment status, operating values, abnormal events, and trends in near real time. This visibility helps teams respond faster and make better maintenance decisions.</p>
+        <p>Visibility also creates accountability. If a voltage profile changes, a pump cycles too frequently, or a communication channel becomes unstable, the data can help identify when the issue began and which equipment was involved. Good SCADA data turns operational memory into evidence.</p>
+      </article>
+
+      <article class="article-card">
+        <h2>Alarms must be engineered</h2>
+        <p>A common beginner mistake is thinking that more alarms mean a safer system. In reality, too many alarms can overwhelm operators and hide important events. Alarm design should be intentional. Each alarm should represent a condition that requires awareness, diagnosis, or action. Alarm priority, delay, deadband, and message wording all matter.</p>
+        <p>A strong alarm message helps the operator understand what happened and where to look next. A weak alarm only says that a value is abnormal. Good engineering asks: What is the consequence? How urgent is it? What action may be needed? Is the alarm caused by equipment behavior, sensor failure, or communication loss?</p>
+      </article>
+
+      <article class="article-card">
+        <h2>Cybersecurity belongs in the design</h2>
+        <p>Modern SCADA systems often use IP networks, remote access, vendor support connections, and data exchange with enterprise systems. This brings operational benefits, but it also means cybersecurity must be part of the design. Network segmentation, access control, secure remote access, patch planning, backup procedures, and event logging are not optional details.</p>
+        <p>Security should be practical and layered. A system can separate control networks from business networks, limit who can make changes, require strong authentication, monitor unusual communication, and keep tested backups of controller logic and HMI configurations. The goal is to protect safety, reliability, and operational continuity.</p>
+      </article>
+
+      <article class="article-card">
+        <h2>How to start learning SCADA</h2>
+        <ol>
+          <li>Learn basic electrical measurements: voltage, current, power, frequency, and equipment status.</li>
+          <li>Study PLC logic and common field signals such as digital input, digital output, analog input, and analog output.</li>
+          <li>Practice reading simple HMI screens and trend charts.</li>
+          <li>Understand communication concepts such as polling, latency, addressing, and protocol mapping.</li>
+          <li>Review alarm examples and ask what action each alarm should trigger.</li>
+          <li>Connect SCADA data to maintenance, reliability, and engineering decision-making.</li>
+        </ol>
+        <p>SCADA becomes easier when it is treated as an engineering system rather than a software screen. The screens matter, but the real value is the connection between field reality, operator awareness, and reliable decisions.</p>
+        <div class="article-nav"><a class="button primary" href="index.html">Back to Blog</a><a class="button secondary" href="../index.html#contact">Discuss SCADA Work</a></div>
+      </article>
+    </section>
+    <section class="section related-reading">
+      <div class="section-heading"><p class="eyebrow">Related Reading</p><h2>Connect field systems to intelligence.</h2></div>
+      <div class="blog-grid latest-grid">
+        <article><span>Embedded</span><h3>Control a Relay with ESP32</h3><a class="inline-link" href="arduino-esp32-relay.html">Build a prototype</a></article>
+        <article><span>AI & Smart Grids</span><h3>How AI Is Changing Smart Grids</h3><a class="inline-link" href="ai-smart-grid.html">Read article</a></article>
+        <article><span>Case Study</span><h3>Biomass Remote Monitoring</h3><a class="inline-link" href="../biomass-case-study.html">View case study</a></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Dr. Musaad Alruwaili</p>
+    <div class="footer-meta"><span>Smart Energy Systems | Renewable Energy | AI | IoT</span><a href="../publications.html">Publications</a><a href="../experience.html">Experience</a><a href="../education.html">Education</a><a href="../teaching.html">Teaching</a><a href="../about-this-site.html">About This Site</a><a href="../editorial-policy.html">Editorial Policy</a><a href="../privacy-policy.html">Privacy Policy</a></div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

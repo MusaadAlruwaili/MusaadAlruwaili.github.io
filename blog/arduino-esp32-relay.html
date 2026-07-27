@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control a Relay with ESP32 | Dr. Musaad Alruwaili</title>
+  <meta name="description" content="Beginner ESP32 relay control tutorial covering GPIO, relay modules, wiring concepts, safety notes, and IoT project extensions.">
+  <meta name="google-adsense-account" content="ca-pub-1892379836098889">
+  <link rel="canonical" href="https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html">
+  <link rel="alternate" type="application/rss+xml" title="Dr. Musaad Alruwaili Engineering Articles" href="https://musaadalruwaili.github.io/feed.xml">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Control a Relay with ESP32">
+  <meta property="og:description" content="A beginner-friendly ESP32 relay control tutorial for GPIO, relay modules, safety, and IoT extensions.">
+  <meta property="og:image" content="https://musaadalruwaili.github.io/assets/project-control-hardware.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889"
+     crossorigin="anonymous"></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Control a Relay with ESP32","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-06-01","dateModified":"2026-07-27","image":"https://musaadalruwaili.github.io/assets/project-control-hardware.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html"}
+  </script>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="../index.html"><span class="brand-mark">MA</span><span>Dr. Musaad Alruwaili</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="header-actions"><nav class="site-nav" aria-label="Primary navigation"><a href="../index.html#topics">Topics</a><a href="../research.html">Research</a><a href="../projects.html">Projects</a><a href="index.html">Blog</a><a href="../resources/index.html">Resources</a><a href="../index.html#contact">Contact</a></nav></div>
+  </header>
+  <main>
+    <section class="article-hero">
+      <p class="eyebrow">Arduino Tutorial</p>
+      <h1>Control a Relay with ESP32</h1>
+      <p class="hero-text">A practical starting point for students and engineers who want to control real-world devices with an ESP32.</p>
+      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Updated July 27, 2026</span><span>6 min read</span><span>ESP32</span></div>
+    </section>
+    <section class="article-tools">
+      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"></ol></aside>
+    </section>
+    <section class="article-layout">
+      <article class="article-card">
+        <h2>What the relay does</h2>
+        <p>A relay lets a low-voltage controller switch a separate circuit. In a simple learning project, the ESP32 sends a control signal to a relay module, and the relay opens or closes the output circuit. This is the same basic idea behind many automation tasks: a digital controller makes a decision, then an interface device safely switches a load.</p>
+        <p>The ESP32 is useful because it combines GPIO control, Wi-Fi, Bluetooth, low cost, and a large learning ecosystem. A relay project can begin as a simple on/off exercise and later grow into a smart-home controller, pump controller, alarm output, sensor-triggered actuator, or MQTT-connected industrial prototype.</p>
+      </article>
+      <article class="article-card">
+        <h2>Basic build steps</h2>
+        <ul>
+          <li>Choose an ESP32 development board and a compatible relay module.</li>
+          <li>Connect VCC, GND, and a GPIO control pin according to the module documentation.</li>
+          <li>Write a simple GPIO program that turns the relay on and off.</li>
+          <li>Test with a low-risk load first before connecting anything sensitive.</li>
+          <li>Add MQTT, a web dashboard, or sensor logic when the basic control is stable.</li>
+        </ul>
+        <p>A common learning setup uses a 5 V relay module powered from a suitable supply, a shared ground with the ESP32 when required by the module design, and one GPIO pin connected to the relay input. Some relay modules are active-low, meaning the relay turns on when the GPIO is pulled low. Always check the module documentation before assuming the logic direction.</p>
+      </article>
+      <article class="article-card">
+        <h2>Example control logic</h2>
+        <p>The first program should be intentionally simple. Configure the GPIO pin as an output, turn the relay on for a short time, turn it off, and repeat. Watch the relay indicator LED and listen for the mechanical click. This confirms the control path before adding networking or sensors.</p>
+        <pre><code>const int relayPin = 23;
+
+void setup() {
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, LOW);
+}
+
+void loop() {
+  digitalWrite(relayPin, HIGH);
+  delay(2000);
+  digitalWrite(relayPin, LOW);
+  delay(2000);
+}</code></pre>
+        <p>If your relay board is active-low, reverse the `HIGH` and `LOW` states. This is why early testing with an LED indicator or low-voltage load is important.</p>
+      </article>
+      <article class="article-card">
+        <h2>Good engineering habits</h2>
+        <p>Even small embedded projects benefit from engineering discipline. Label wires, document the GPIO pin, write down the relay module type, and keep a simple test log. If the project later includes a sensor, dashboard, or cloud connection, these notes prevent confusion when troubleshooting.</p>
+        <p>For IoT extensions, MQTT is a practical next step. The ESP32 can subscribe to a topic such as `lab/relay1/cmd` and publish its status to `lab/relay1/state`. This creates a clean separation between command, device behavior, and monitoring. It also prepares the project for dashboards, automation rules, and data logging.</p>
+      </article>
+      <article class="article-card">
+        <h2>Safety note</h2>
+        <p>Do not connect mains voltage unless you are qualified and using proper protection, enclosures, isolation, fusing, strain relief, and local electrical safety practices. For learning, start with low-voltage DC loads such as a small lamp, buzzer, or motor. Keep the control side and load side clearly separated, and never touch wiring while a circuit is energized.</p>
+        <p>A relay is simple, but the load it controls may not be. Motors, pumps, and inductive loads can create electrical noise and voltage spikes. Use appropriate protection components and choose relay ratings with margin. When the project moves beyond a classroom demonstration, involve a qualified electrical professional.</p>
+        <div class="article-nav"><a class="button primary" href="index.html">Back to Blog</a><a class="button secondary" href="../resources/index.html">Browse Resources</a></div>
+      </article>
+    </section>
+    <section class="section related-reading">
+      <div class="section-heading"><p class="eyebrow">Related Reading</p><h2>Build the next layer.</h2></div>
+      <div class="blog-grid latest-grid">
+        <article><span>Automation</span><h3>Beginner Guide to SCADA</h3><a class="inline-link" href="beginner-guide-to-scada.html">Read next</a></article>
+        <article><span>Tools</span><h3>MATLAB vs Python for Engineers</h3><a class="inline-link" href="matlab-vs-python-engineers.html">Compare tools</a></article>
+        <article><span>Resources</span><h3>Engineering Resource Library</h3><a class="inline-link" href="../resources/index.html">Browse resources</a></article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>Dr. Musaad Alruwaili</p><div class="footer-meta"><span>Smart Energy Systems | Renewable Energy | AI | IoT</span><a href="../publications.html">Publications</a><a href="../experience.html">Experience</a><a href="../education.html">Education</a><a href="../teaching.html">Teaching</a><a href="../about-this-site.html">About This Site</a><a href="../editorial-policy.html">Editorial Policy</a><a href="../privacy-policy.html">Privacy Policy</a></div></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
