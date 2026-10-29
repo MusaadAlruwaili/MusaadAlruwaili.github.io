@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260802-orange-site">
+  <link rel="stylesheet" href="../styles.css?v=20261029-blog">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889"
      crossorigin="anonymous"></script>
   <script type="application/ld+json">
@@ -65,58 +65,60 @@
       <p class="hero-text">A growing library on AI, smart grids, SCADA, Arduino, ESP32, MATLAB, Python, wireless communications, and research writing.</p>
     </section>
 
+<section class="section start-here" aria-labelledby="startHeading"><div class="section-heading"><p class="eyebrow">Start here</p><h2 id="startHeading">From a first circuit to smarter systems.</h2><p>Follow three practical steps, then explore by topic.</p></div><ol class="learning-path"><li><a href="arduino-esp32-relay.html">01 · ESP32 bench control</a><span>Build and document a simple output.</span></li><li><a href="beginner-guide-to-scada.html">02 · SCADA architecture</a><span>Connect signals, alarms, and operators.</span></li><li><a href="ai-smart-grid.html">03 · Smart-grid analytics</a><span>Evaluate predictions against a baseline.</span></li></ol><p><a class="inline-link" href="scada-basics-ar.html" lang="ar" hreflang="ar">دليل SCADA بالعربية</a> · <a class="inline-link" href="esp32-relay-ar.html" lang="ar" hreflang="ar">تجربة ESP32 بالعربية</a> · <a class="inline-link" href="../feed.xml">Subscribe via RSS</a></p></section>
     <section class="section">
       <div class="blog-controls" aria-label="Article search and filters">
         <label class="search-field">
           <span>Search articles</span>
           <input type="search" id="blogSearch" placeholder="Search SCADA, ESP32, IEEE, AI...">
         </label>
-        <div class="filter-buttons" aria-label="Article categories">
-          <button type="button" class="active" data-filter="all">All</button>
-          <button type="button" data-filter="ai">AI</button>
-          <button type="button" data-filter="automation">SCADA</button>
-          <button type="button" data-filter="embedded">Embedded</button>
-          <button type="button" data-filter="research">Research</button>
-          <button type="button" data-filter="tools">Tools</button>
+        <label class="sort-field">Sort articles<select id="blogSort"><option value="newest">Newest published</option><option value="updated">Recently updated</option><option value="title">Title A–Z</option></select></label>
+<div class="filter-buttons" aria-label="Article categories">
+          <button type="button" class="active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="ai" aria-pressed="false">AI</button>
+          <button type="button" data-filter="automation" aria-pressed="false">SCADA</button>
+          <button type="button" data-filter="embedded" aria-pressed="false">Embedded</button>
+          <button type="button" data-filter="research" aria-pressed="false">Research</button>
+          <button type="button" data-filter="tools" aria-pressed="false">Tools</button>
         </div>
       </div>
-      <p class="empty-state" id="blogEmpty" hidden>No articles match that search yet.</p>
+      <p class="reading-meta">Default order: newest publication first. Each card also shows its latest revision.</p><p class="empty-state" id="blogEmpty" role="status" aria-live="polite" hidden>No articles match that search yet.</p>
       <div class="blog-grid filterable-blog">
-        <article data-category="ai" data-tags="ai smart grids energy forecasting anomaly detection">
-          <span>AI & Smart Grids | June 2026</span>
-          <h3>How AI Is Changing Smart Grids</h3>
-          <p class="blog-lead">Forecasting, anomaly detection, optimization, and decision support for distribution networks.</p>
-          <a class="inline-link" href="ai-smart-grid.html">Read More</a>
-        </article>
-        <article data-category="embedded" data-tags="arduino esp32 relay gpio mqtt iot">
-          <span>Arduino Tutorial | June 2026</span>
-          <h3>Control a Relay with ESP32</h3>
-          <p class="blog-lead">A beginner-friendly embedded systems tutorial for relay modules, GPIO, and IoT extensions.</p>
-          <a class="inline-link" href="arduino-esp32-relay.html">Read More</a>
-        </article>
-        <article data-category="research" data-tags="ieee access paper writing review manuscript">
-          <span>Research Writing | June 2026</span>
-          <h3>IEEE Access Paper Writing Tips</h3>
-          <p class="blog-lead">A practical workflow for stronger structure, validation, figures, and reviewer responses.</p>
-          <a class="inline-link" href="ieee-paper-writing-tips.html">Read More</a>
-        </article>
-        <article data-category="tools" data-tags="matlab python simulation data analysis machine learning">
-          <span>Tools | June 2026</span>
-          <h3>MATLAB vs Python for Engineers</h3>
-          <p class="blog-lead">How to choose the right tool for simulation, analysis, machine learning, and publication work.</p>
-          <a class="inline-link" href="matlab-vs-python-engineers.html">Read More</a>
-        </article>
-        <article data-category="automation" data-tags="scada plc rtu telemetry hmi historian alarms cybersecurity">
+<article data-published="2026-07-01" data-updated="2026-10-29" data-category="automation" data-tags="scada plc rtu telemetry hmi historian alarms cybersecurity">
           <span>SCADA | July 2026</span>
-          <h3>Beginner Guide to SCADA</h3>
+          <h3>Beginner Guide to SCADA</h3><p class="reading-meta">Beginner · 5 min read · Updated <time datetime="2026-10-29">Oct 29, 2026</time></p>
           <p class="blog-lead">A clear introduction to field devices, PLCs, RTUs, telemetry, HMIs, historian data, alarms, and cybersecurity.</p>
           <a class="inline-link" href="beginner-guide-to-scada.html">Read More</a>
         </article>
-        <article data-category="ai" data-tags="ai 6g wireless smart cities edge intelligence security digital twins">
+<article data-published="2026-07-01" data-updated="2026-10-29" data-category="ai" data-tags="ai 6g wireless smart cities edge intelligence security digital twins">
           <span>AI & 6G | July 2026</span>
-          <h3>AI in 6G Networks</h3>
+          <h3>AI in 6G Networks</h3><p class="reading-meta">Intermediate · 5 min read · Updated <time datetime="2026-10-29">Oct 29, 2026</time></p>
           <p class="blog-lead">How AI-native communication, edge intelligence, sensing, security, and digital twins connect to future infrastructure.</p>
           <a class="inline-link" href="ai-in-6g-networks.html">Read More</a>
+        </article>
+<article data-published="2026-06-01" data-updated="2026-10-29" data-category="ai" data-tags="ai smart grids energy forecasting anomaly detection">
+          <span>AI & Smart Grids | June 2026</span>
+          <h3>How AI Is Changing Smart Grids</h3><p class="reading-meta">Intermediate · 4 min read · Updated <time datetime="2026-10-29">Oct 29, 2026</time></p>
+          <p class="blog-lead">Forecasting, anomaly detection, optimization, and decision support for distribution networks.</p>
+          <a class="inline-link" href="ai-smart-grid.html">Read More</a>
+        </article>
+<article data-published="2026-06-01" data-updated="2026-10-29" data-category="embedded" data-tags="arduino esp32 relay gpio mqtt iot">
+          <span>Arduino Tutorial | June 2026</span>
+          <h3>Control a Relay with ESP32</h3><p class="reading-meta">Beginner · 4 min read · Updated <time datetime="2026-10-29">Oct 29, 2026</time></p>
+          <p class="blog-lead">A beginner-friendly embedded systems tutorial for relay modules, GPIO, and IoT extensions.</p>
+          <a class="inline-link" href="arduino-esp32-relay.html">Read More</a>
+        </article>
+<article data-published="2026-06-01" data-updated="2026-10-29" data-category="research" data-tags="ieee access paper writing review manuscript">
+          <span>Research Writing | June 2026</span>
+          <h3>IEEE Access Paper Writing Tips</h3><p class="reading-meta">Intermediate · 4 min read · Updated <time datetime="2026-10-29">Oct 29, 2026</time></p>
+          <p class="blog-lead">A practical workflow for stronger structure, validation, figures, and reviewer responses.</p>
+          <a class="inline-link" href="ieee-paper-writing-tips.html">Read More</a>
+        </article>
+<article data-published="2026-06-01" data-updated="2026-10-29" data-category="tools" data-tags="matlab python simulation data analysis machine learning">
+          <span>Tools | June 2026</span>
+          <h3>MATLAB vs Python for Engineers</h3><p class="reading-meta">Beginner · 4 min read · Updated <time datetime="2026-10-29">Oct 29, 2026</time></p>
+          <p class="blog-lead">How to choose the right tool for simulation, analysis, machine learning, and publication work.</p>
+          <a class="inline-link" href="matlab-vs-python-engineers.html">Read More</a>
         </article>
       </div>
     </section>
@@ -136,7 +138,7 @@
     </div>
   </footer>
 
-  <script src="../script.js?v=20260728-profile-ar"></script>
+  <script src="../script.js?v=20261029-blog"></script>
 </body>
 </html>
 

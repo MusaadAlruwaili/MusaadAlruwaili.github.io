@@ -15,11 +15,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260802-orange-site">
+  <link rel="stylesheet" href="../styles.css?v=20261029-blog">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889"
      crossorigin="anonymous"></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BlogPosting","headline":"MATLAB vs Python for Engineers","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-06-01","dateModified":"2026-07-27","image":"https://musaadalruwaili.github.io/assets/education-research-lab.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/matlab-vs-python-engineers.html"}
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"MATLAB vs Python for Engineers","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-06-01","dateModified":"2026-10-29","image":"https://musaadalruwaili.github.io/assets/education-research-lab.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/matlab-vs-python-engineers.html"}
   </script>
   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fc82194f6110e86fba4b7727f03faee9"})});</script>
 </head>
@@ -34,29 +34,37 @@
       <p class="eyebrow">Engineering Tools</p>
       <h1>MATLAB vs Python for Engineers</h1>
       <p class="hero-text">Both tools are valuable. The best choice depends on the problem, the team, the required libraries, and the final deliverable.</p>
-      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Updated July 27, 2026</span><span>6 min read</span><span>MATLAB</span><span>Python</span></div>
+      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Beginner</span><span>Updated October 29, 2026</span><span>4 min read</span><span>MATLAB</span><span>Python</span></div>
     </section>
     <section class="article-tools">
-      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"></ol></aside>
+      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"><li><a href="#what-you-will-learn">What you will learn</a></li><li><a href="#worked-example-the-same-error-metric-in-two-tools">Worked example: the same error metric in two tools</a></li><li><a href="#when-matlab-is-strong">When MATLAB is strong</a></li><li><a href="#when-python-is-strong">When Python is strong</a></li><li><a href="#how-i-would-choose-for-a-project">How I would choose for a project</a></li><li><a href="#practical-recommendation">Practical recommendation</a></li><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#references-and-further-reading">References and further reading</a></li></ol></aside>
     </section>
     <section class="article-layout">
+<article class="article-card learning-summary"><h2 id="what-you-will-learn">What you will learn</h2><ul><li>Choose tools based on the engineering task.</li><li>Reproduce one calculation in both environments.</li><li>Record versions and assumptions for repeatability.</li></ul><p><strong>Prerequisites:</strong> Basic arrays and averages; MATLAB or a Python 3 installation for the optional exercise.</p></article>
+<article class="article-card "><h2 id="worked-example-the-same-error-metric-in-two-tools">Worked example: the same error metric in two tools</h2><p>Using the synthetic forecast values from the smart-grid article, both snippets calculate the mean absolute error in kW. No external Python packages are required.</p><h3>MATLAB</h3><pre dir="ltr"><code>actual = [100 110 120];
+predicted = [98 112 117];
+mae = mean(abs(actual - predicted)) % 2.3333 kW</code></pre><h3>Python</h3><pre dir="ltr"><code>from statistics import mean
+actual = [100, 110, 120]
+predicted = [98, 112, 117]
+mae = mean(abs(a - p) for a, p in zip(actual, predicted))
+print(f"{mae:.2f} kW")  # 2.33 kW</code></pre><p>Check equal array lengths, timestamps, and units before comparing real data. Record tool versions when saving results.</p></article>
       <article class="article-card">
-        <h2>When MATLAB is strong</h2>
+        <h2 id="when-matlab-is-strong">When MATLAB is strong</h2>
         <p>MATLAB is excellent for engineering-focused simulation, signal processing, control systems, matrix-heavy modeling, and fast prototyping when toolboxes match the problem. Many electrical engineering workflows are naturally expressed as vectors, matrices, transfer functions, filters, optimization problems, or simulation models. MATLAB makes these tasks approachable because the language, documentation, and toolboxes are designed around engineering use cases.</p>
         <p>For a researcher, MATLAB is often strongest in the early modeling stage. You can test equations, compare algorithms, create controlled simulations, and generate publication figures quickly. In wireless communication, power systems, control, and signal processing, this speed can be valuable when the main question is whether an idea works under a defined set of assumptions.</p>
       </article>
       <article class="article-card">
-        <h2>When Python is strong</h2>
+        <h2 id="when-python-is-strong">When Python is strong</h2>
         <p>Python is powerful for data pipelines, machine learning, automation, web-connected tools, dashboards, open-source workflows, and projects that need integration beyond the engineering model. It is especially useful when the work involves large datasets, APIs, cloud services, databases, dashboards, or deployment into a software environment.</p>
         <p>Python also has a strong ecosystem for artificial intelligence. Libraries for machine learning, data analysis, visualization, optimization, and web applications allow engineers to move from an experiment to a usable tool. If the final result must be shared as a web dashboard, automated report, or data-processing pipeline, Python often becomes the practical choice.</p>
       </article>
       <article class="article-card">
-        <h2>How I would choose for a project</h2>
+        <h2 id="how-i-would-choose-for-a-project">How I would choose for a project</h2>
         <p>The best choice depends on the deliverable. If the deliverable is a validated engineering model, MATLAB may be the fastest route. If the deliverable is a deployable workflow, Python may be stronger. If the project includes both deep engineering simulation and software integration, using both can be the most realistic answer.</p>
         <p>For example, a researcher studying wireless resource allocation may use MATLAB to simulate the algorithm, compare baselines, and generate repeatable results for a paper. Later, Python can be used to build a dashboard, automate parameter sweeps, store results, or connect the model to a larger AI workflow. The tools should serve the engineering question, not become the question themselves.</p>
       </article>
       <article class="article-card">
-        <h2>Practical recommendation</h2>
+        <h2 id="practical-recommendation">Practical recommendation</h2>
         <ul>
           <li>Use MATLAB when the engineering model and toolbox ecosystem are the center of the work.</li>
           <li>Use Python when data engineering, AI libraries, deployment, or integration are central.</li>
@@ -66,7 +74,9 @@
         <p>A good learning path is simple: use MATLAB for one simulation project, use Python for one data-analysis project, then repeat the same small problem in both environments. Comparing the two solutions teaches syntax, libraries, visualization style, debugging habits, and workflow design.</p>
         <div class="article-nav"><a class="button primary" href="index.html">Back to Blog</a><a class="button secondary" href="../index.html#contact">Suggest a Tutorial</a></div>
       </article>
-    </section>
+    <article class="article-card "><h2 id="key-takeaways">Key takeaways</h2><ul><li>Use the same inputs and metric when comparing tools.</li><li>Include deployment needs and available licenses in the choice.</li><li>Keep a small reproducible calculation alongside larger models.</li></ul></article>
+<article class="article-card "><h2 id="references-and-further-reading">References and further reading</h2><ol><li><a class="inline-link" href="https://docs.python.org/3/library/statistics.html#statistics.mean">Python: statistics.mean</a></li><li><a class="inline-link" href="https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error">scikit-learn: Mean absolute error</a></li></ol><p>Examples explicitly marked as illustrative are teaching material, not field measurements.</p></article>
+</section>
     <section class="section related-reading">
       <div class="section-heading"><p class="eyebrow">Related Reading</p><h2>Apply the tools.</h2></div>
       <div class="blog-grid latest-grid">
@@ -77,7 +87,7 @@
     </section>
   </main>
   <footer class="site-footer"><p>Dr. Musaad Alruwaili</p><div class="footer-meta"><span>Smart Energy Systems | Renewable Energy | AI | IoT</span><a href="../publications.html">Publications</a><a href="../experience.html">Experience</a><a href="../education.html">Education</a><a href="../teaching.html">Teaching</a><a href="../about-this-site.html">About This Site</a><a href="../editorial-policy.html">Editorial Policy</a><a href="../privacy-policy.html">Privacy Policy</a></div></footer>
-  <script src="../script.js?v=20260728-profile-ar"></script>
+  <script src="../script.js?v=20261029-blog"></script>
 </body>
 </html>
 

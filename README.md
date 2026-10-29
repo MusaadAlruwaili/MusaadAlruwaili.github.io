@@ -70,3 +70,17 @@ The first live submission may trigger a FormSubmit activation email. Confirm tha
 - Add new original engineering articles regularly.
 - Add downloadable templates or code files only when they are complete and useful.
 - Update domain settings if using a custom domain.
+
+## Reader and resource improvements (October 29, 2026)
+
+- Six English articles now include learning objectives, prerequisites, worked teaching examples, takeaways, primary references, and estimated reading times (200 words/minute).
+- Blog cards show difficulty, reading time, and revision date. Static HTML lists newest publication dates first; the sort control also supports revision date and title. Category buttons expose aria-pressed state.
+- `blog/scada-basics-ar.html` and `blog/esp32-relay-ar.html` are standalone Arabic articles with RTL layout and reciprocal language links. Reading estimates use 180 words/minute. Other pages retain the existing optional Google Translate behavior.
+- `resources/downloads/` contains a relay sketch with wiring/test notes, an illustrative alarm CSV, a manuscript-review worksheet, and synthetic forecast data with a standard-library Python scorer. The sketch and notes are also packaged as `esp32-relay-demo.zip`.
+- Examples are explicitly illustrative; the ESP32 project has not been physically tested. No field results or deployment claims were added.
+- Privacy disclosures now describe direct FormSubmit submission, the email fallback, language storage, and Metricool. Metricool and AdSense snippets remain in place on every existing page and are included on the new Arabic pages.
+- Rebuild the relay ZIP if its source sketch or README changes; keep the folder and `.ino` names identical for Arduino IDE.
+
+### Local preview
+
+Run `python -m http.server 8765` from the repository root, then open `http://localhost:8765/blog/`. No build step or application login is required. Do not submit the contact form during automated checks; it points to the live FormSubmit recipient.

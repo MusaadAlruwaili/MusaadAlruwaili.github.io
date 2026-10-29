@@ -1,0 +1,4 @@
+sample,actual_kw,baseline_kw,candidate_kw
+1,100,95,98
+2,110,115,112
+3,120,130,117

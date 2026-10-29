@@ -15,38 +15,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260802-orange-site">
+  <link rel="stylesheet" href="../styles.css?v=20261029-blog">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889"
      crossorigin="anonymous"></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Control a Relay with ESP32","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-06-01","dateModified":"2026-07-27","image":"https://musaadalruwaili.github.io/assets/project-control-hardware.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html"}
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Control a Relay with ESP32","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-06-01","dateModified":"2026-10-29","image":"https://musaadalruwaili.github.io/assets/project-control-hardware.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html"}
   </script>
   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fc82194f6110e86fba4b7727f03faee9"})});</script>
+<link rel="alternate" hreflang="en" href="https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html">
+<link rel="alternate" hreflang="ar" href="https://musaadalruwaili.github.io/blog/esp32-relay-ar.html">
 </head>
 <body class="article-page">
   <header class="site-header">
     <a class="brand" href="../index.html"><span class="brand-mark">MA</span><span>Dr. Musaad Alruwaili</span></a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-    <div class="header-actions"><nav class="site-nav" aria-label="Primary navigation"><a href="../index.html#topics">Topics</a><a href="../research.html">Research</a><a href="../projects.html">Projects</a><a href="index.html">Blog</a><a href="../resources/index.html">Resources</a><a href="../index.html#contact">Contact</a></nav><a class="language-toggle translate-link" href="https://translate.google.com/translate?sl=en&amp;tl=ar&amp;u=https%3A%2F%2Fmusaadalruwaili.github.io%2F" data-translate-page lang="ar" hreflang="ar" target="_blank" rel="noopener noreferrer" aria-label="Read this page in Arabic">AR | ???????</a></div>
+    <div class="header-actions"><nav class="site-nav" aria-label="Primary navigation"><a href="../index.html#topics">Topics</a><a href="../research.html">Research</a><a href="../projects.html">Projects</a><a href="index.html">Blog</a><a href="../resources/index.html">Resources</a><a href="../index.html#contact">Contact</a></nav><a class="language-toggle" href="esp32-relay-ar.html" lang="ar" hreflang="ar">العربية</a></div>
   </header>
   <main>
     <section class="article-hero">
       <p class="eyebrow">Arduino Tutorial</p>
       <h1>Control a Relay with ESP32</h1>
       <p class="hero-text">A practical starting point for students and engineers who want to control real-world devices with an ESP32.</p>
-      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Updated July 27, 2026</span><span>6 min read</span><span>ESP32</span></div>
+      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Beginner</span><span>Updated October 29, 2026</span><span>4 min read</span><span>ESP32</span></div>
     </section>
     <section class="article-tools">
-      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"></ol></aside>
+      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"><li><a href="#what-you-will-learn">What you will learn</a></li><li><a href="#what-the-relay-does">What the relay does</a></li><li><a href="#basic-build-steps">Basic build steps</a></li><li><a href="#worked-example-command-a-relay-from-serial-monitor">Worked example: command a relay from Serial Monitor</a></li><li><a href="#good-engineering-habits">Good engineering habits</a></li><li><a href="#safety-note">Safety note</a></li><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#references-and-further-reading">References and further reading</a></li></ol></aside>
     </section>
     <section class="article-layout">
+<article class="article-card learning-summary"><h2 id="what-you-will-learn">What you will learn</h2><ul><li>Map a software command to a documented GPIO state.</li><li>Handle active-low and active-high relay logic explicitly.</li><li>Record repeatable low-voltage bench checks.</li></ul><p><strong>Prerequisites:</strong> Arduino IDE, the Espressif ESP32 board package, and a documented 3.3 V logic-compatible relay module.</p></article>
       <article class="article-card">
-        <h2>What the relay does</h2>
+        <h2 id="what-the-relay-does">What the relay does</h2>
         <p>A relay lets a low-voltage controller switch a separate circuit. In a simple learning project, the ESP32 sends a control signal to a relay module, and the relay opens or closes the output circuit. This is the same basic idea behind many automation tasks: a digital controller makes a decision, then an interface device safely switches a load.</p>
         <p>The ESP32 is useful because it combines GPIO control, Wi-Fi, Bluetooth, low cost, and a large learning ecosystem. A relay project can begin as a simple on/off exercise and later grow into a smart-home controller, pump controller, alarm output, sensor-triggered actuator, or MQTT-connected industrial prototype.</p>
       </article>
       <article class="article-card">
-        <h2>Basic build steps</h2>
+        <h2 id="basic-build-steps">Basic build steps</h2>
         <ul>
           <li>Choose an ESP32 development board and a compatible relay module.</li>
           <li>Connect VCC, GND, and a GPIO control pin according to the module documentation.</li>
@@ -56,36 +59,46 @@
         </ul>
         <p>A common learning setup uses a 5 V relay module powered from a suitable supply, a shared ground with the ESP32 when required by the module design, and one GPIO pin connected to the relay input. Some relay modules are active-low, meaning the relay turns on when the GPIO is pulled low. Always check the module documentation before assuming the logic direction.</p>
       </article>
-      <article class="article-card">
-        <h2>Example control logic</h2>
-        <p>The first program should be intentionally simple. Configure the GPIO pin as an output, turn the relay on for a short time, turn it off, and repeat. Watch the relay indicator LED and listen for the mechanical click. This confirms the control path before adding networking or sensors.</p>
-        <pre><code>const int relayPin = 23;
+      <article class="article-card "><h2 id="worked-example-command-a-relay-from-serial-monitor">Worked example: command a relay from Serial Monitor</h2><p class="example-note">Low-voltage bench example. Verify the board pinout, input compatibility, and relay polarity. The sketch has not been tested on physical hardware.</p><p>The downloadable program starts OFF after setup and accepts <code>1</code> for ON or <code>0</code> for OFF through Serial Monitor at 115200 baud. It ignores other characters. Begin with load terminals disconnected.</p><pre dir="ltr"><code>// ESP32 low-voltage relay bench demo. No Wi-Fi or credentials required.
+// Classic ESP32 DevKit example: verify your board&#x27;s GPIO map before wiring.
+#include &lt;Arduino.h&gt;
+constexpr uint8_t RELAY_PIN = 23;
+constexpr bool ACTIVE_LOW = true;  // Match the relay module datasheet.
+constexpr uint8_t RELAY_ON = ACTIVE_LOW ? LOW : HIGH;
+constexpr uint8_t RELAY_OFF = ACTIVE_LOW ? HIGH : LOW;
 
 void setup() {
-  pinMode(relayPin, OUTPUT);
-  digitalWrite(relayPin, LOW);
+  pinMode(RELAY_PIN, OUTPUT);
+  digitalWrite(RELAY_PIN, RELAY_OFF); // Request OFF immediately after output setup.
+  Serial.begin(115200);
+  Serial.println(&quot;Bench demo: 1=ON, 0=OFF. Starts OFF.&quot;);
 }
 
 void loop() {
-  digitalWrite(relayPin, HIGH);
-  delay(2000);
-  digitalWrite(relayPin, LOW);
-  delay(2000);
-}</code></pre>
-        <p>If your relay board is active-low, reverse the `HIGH` and `LOW` states. This is why early testing with an LED indicator or low-voltage load is important.</p>
-      </article>
+  if (Serial.available() &gt; 0) {
+    const char command = Serial.read();
+    if (command == &#x27;1&#x27; || command == &#x27;0&#x27;) {
+      const bool on = command == &#x27;1&#x27;;
+      digitalWrite(RELAY_PIN, on ? RELAY_ON : RELAY_OFF);
+      Serial.println(on ? &quot;Relay ON&quot; : &quot;Relay OFF&quot;);
+    }
+  }
+}
+</code></pre><p>The program requests the inactive level immediately after configuring the output. This does not guarantee a safe state during initialization, boot, power loss, or reset; those states require suitable hardware design.</p><a class="button primary" href="../resources/downloads/esp32-relay-demo.zip" download>Download sketch and wiring notes (ZIP)</a></article>
       <article class="article-card">
-        <h2>Good engineering habits</h2>
+        <h2 id="good-engineering-habits">Good engineering habits</h2>
         <p>Even small embedded projects benefit from engineering discipline. Label wires, document the GPIO pin, write down the relay module type, and keep a simple test log. If the project later includes a sensor, dashboard, or cloud connection, these notes prevent confusion when troubleshooting.</p>
         <p>For IoT extensions, MQTT is a practical next step. The ESP32 can subscribe to a topic such as `lab/relay1/cmd` and publish its status to `lab/relay1/state`. This creates a clean separation between command, device behavior, and monitoring. It also prepares the project for dashboards, automation rules, and data logging.</p>
       </article>
       <article class="article-card">
-        <h2>Safety note</h2>
+        <h2 id="safety-note">Safety note</h2>
         <p>Do not connect mains voltage unless you are qualified and using proper protection, enclosures, isolation, fusing, strain relief, and local electrical safety practices. For learning, start with low-voltage DC loads such as a small lamp, buzzer, or motor. Keep the control side and load side clearly separated, and never touch wiring while a circuit is energized.</p>
         <p>A relay is simple, but the load it controls may not be. Motors, pumps, and inductive loads can create electrical noise and voltage spikes. Use appropriate protection components and choose relay ratings with margin. When the project moves beyond a classroom demonstration, involve a qualified electrical professional.</p>
         <div class="article-nav"><a class="button primary" href="index.html">Back to Blog</a><a class="button secondary" href="../resources/index.html">Browse Resources</a></div>
       </article>
-    </section>
+    <article class="article-card "><h2 id="key-takeaways">Key takeaways</h2><ul><li>Match the pin and active level to the exact board/module.</li><li>Start with unloaded contacts and record each command response.</li><li>Software defaults do not replace hardware fault protection.</li></ul></article>
+<article class="article-card "><h2 id="references-and-further-reading">References and further reading</h2><ol><li><a class="inline-link" href="https://docs.espressif.com/projects/arduino-esp32/en/latest/api/gpio.html">Espressif Arduino-ESP32: GPIO API</a></li></ol><p>Examples explicitly marked as illustrative are teaching material, not field measurements.</p></article>
+</section>
     <section class="section related-reading">
       <div class="section-heading"><p class="eyebrow">Related Reading</p><h2>Build the next layer.</h2></div>
       <div class="blog-grid latest-grid">
@@ -96,7 +109,7 @@ void loop() {
     </section>
   </main>
   <footer class="site-footer"><p>Dr. Musaad Alruwaili</p><div class="footer-meta"><span>Smart Energy Systems | Renewable Energy | AI | IoT</span><a href="../publications.html">Publications</a><a href="../experience.html">Experience</a><a href="../education.html">Education</a><a href="../teaching.html">Teaching</a><a href="../about-this-site.html">About This Site</a><a href="../editorial-policy.html">Editorial Policy</a><a href="../privacy-policy.html">Privacy Policy</a></div></footer>
-  <script src="../script.js?v=20260728-profile-ar"></script>
+  <script src="../script.js?v=20261029-blog"></script>
 </body>
 </html>
 

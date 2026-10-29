@@ -6,7 +6,9 @@
     <atom:link href="https://musaadalruwaili.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>Engineering articles on smart grids, SCADA, IoT, Arduino, AI, 5G/6G, MATLAB, Python, and IEEE research writing.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Jul 2026 09:30:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 12:00:00 +0300</lastBuildDate>
+<item><title>دليل المبتدئ إلى أنظمة SCADA</title><link>https://musaadalruwaili.github.io/blog/scada-basics-ar.html</link><guid>https://musaadalruwaili.github.io/blog/scada-basics-ar.html</guid><pubDate>Thu, 29 Oct 2026 12:00:00 +0300</pubDate><category>Arabic</category><description>شرح عربي لبنية SCADA من الحساس إلى شاشة المشغّل، مع مثال تعليمي للإنذارات وجدول قابل للتحميل.</description></item>
+<item><title>التحكم بمرحل باستخدام ESP32: تجربة تعليمية</title><link>https://musaadalruwaili.github.io/blog/esp32-relay-ar.html</link><guid>https://musaadalruwaili.github.io/blog/esp32-relay-ar.html</guid><pubDate>Thu, 29 Oct 2026 12:00:00 +0300</pubDate><category>Arabic</category><description>تجربة عربية للتحكم بمرحل من المنفذ التسلسلي، مع كود قابل للتحميل وملاحظات التوصيل واختبار المنطق.</description></item>
     <item>
       <title>How AI is Changing Smart Grids</title>
       <link>https://musaadalruwaili.github.io/blog/ai-smart-grid.html</link>

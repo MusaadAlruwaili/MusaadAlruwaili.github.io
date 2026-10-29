@@ -615,6 +615,27 @@ const blogSearch = document.querySelector("#blogSearch");
 const filterButtons = [...document.querySelectorAll("[data-filter]")];
 const filterableArticles = [...document.querySelectorAll(".filterable-blog article")];
 const blogEmpty = document.querySelector("#blogEmpty");
+const blogSort = document.querySelector("#blogSort");
+
+function sortBlogArticles() {
+  const container = document.querySelector(".filterable-blog");
+  if (!container || !blogSort) return;
+  const title = (article) => article.querySelector("h3")?.textContent.trim() || "";
+  const mode = blogSort.value;
+  const sorted = [...filterableArticles].sort((a, b) => {
+    if (mode === "title") return title(a).localeCompare(title(b));
+    const key = mode === "updated" ? "updated" : "published";
+    return (b.dataset[key] || "").localeCompare(a.dataset[key] || "") ||
+      (b.dataset.published || "").localeCompare(a.dataset.published || "") ||
+      title(a).localeCompare(title(b));
+  });
+  sorted.forEach((article) => container.append(article));
+}
+
+if (blogSort) {
+  blogSort.addEventListener("change", sortBlogArticles);
+  sortBlogArticles();
+}
 
 function filterBlogArticles() {
   if (!filterableArticles.length) return;
@@ -638,8 +659,12 @@ if (blogSearch && filterableArticles.length) {
   blogSearch.addEventListener("input", filterBlogArticles);
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      filterButtons.forEach((item) => item.classList.remove("active"));
+      filterButtons.forEach((item) => {
+        item.classList.remove("active");
+        item.setAttribute("aria-pressed", "false");
+      });
       button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
       filterBlogArticles();
     });
   });
@@ -660,7 +685,7 @@ if (tocList) {
 
     const baseId = heading.id || label
       .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/[^\p{L}\p{N}]+/gu, "-")
       .replace(/^-|-$/g, "");
     const baseSlug = baseId || "section";
     let headingId = baseSlug;

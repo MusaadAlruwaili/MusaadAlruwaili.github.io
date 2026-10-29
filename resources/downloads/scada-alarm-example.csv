@@ -1,0 +1,3 @@
+tag,condition,delay_seconds,reset_condition,example_priority,operator_check,scope
+TANK_LEVEL_HIGH,level_pct >= 80 continuously,5,level_pct <= 75,Review during design,Verify level and inlet condition,Illustrative training only
+RTU_COMMS_LOSS,no valid update for 10 seconds,0,valid data restored,Review during design,Check timestamp quality and communications,Illustrative training only

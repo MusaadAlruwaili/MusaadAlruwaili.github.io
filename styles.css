@@ -2886,3 +2886,41 @@ input::placeholder,
 textarea::placeholder {
   font-family: var(--site-font);
 }
+
+/* Reader guides, original teaching diagrams, and native Arabic articles. */
+.reading-meta { color: var(--ink-soft); font-size: .9rem; line-height: 1.7; }
+.learning-summary { border-inline-start: 4px solid var(--green); }
+.example-note { padding: 14px 18px; background: var(--green-soft); border-inline-start: 3px solid var(--green); }
+.architecture-figure { margin: 24px 0; padding: 20px; background: #f4f8fb; border: 1px solid var(--line); border-radius: 10px; }
+.architecture-figure figcaption { font-weight: 700; margin-block-end: 16px; }
+.architecture-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 0; list-style: none; }
+.architecture-flow li { padding: 14px; background: #fff; border-block-start: 3px solid var(--green); border-radius: 6px; min-width: 0; }
+.architecture-flow strong, .architecture-flow span { display: block; }
+.architecture-flow span { font-size: .86rem; margin-block-start: 8px; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin-block: 22px; }
+.table-scroll table { width: 100%; border-collapse: collapse; min-width: 440px; }
+.table-scroll th, .table-scroll td { padding: 12px; border: 1px solid var(--line); text-align: start; vertical-align: top; }
+.table-scroll thead { background: var(--green-soft); }
+.table-scroll caption { text-align: start; padding-block-end: 12px; font-size: .9rem; }
+.learning-path { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.learning-path li { padding: 22px; border: 1px solid var(--line); border-inline-start: 4px solid var(--green); background: #fff; border-radius: 8px; }
+.learning-path a { color: var(--blue); font-weight: 700; }
+.learning-path span { display: block; margin-block-start: 10px; color: var(--ink-soft); }
+.sort-field { display: grid; gap: 8px; font-weight: 700; }
+.sort-field select { padding: 12px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: white; font: inherit; }
+.filter-buttons { flex-wrap: wrap; }
+.article-card, .blog-grid > article, .document-card { min-width: 0; overflow-wrap: anywhere; }
+.article-card pre { direction: ltr; text-align: left; overflow-wrap: normal; }
+.native-ar, .native-ar :is(h1, h2, h3, button, input, select, .eyebrow, .inline-link, .brand, .site-footer > p) { font-family: "Noto Naskh Arabic", Arial, sans-serif; }
+.native-ar .article-card { font-size: 1.12rem; line-height: 1.95; }
+.native-ar .article-card h2 { line-height: 1.5; }
+.native-ar .article-toc ol { padding-inline-start: 24px; }
+.native-ar .architecture-flow li + li { margin-top: 0; }
+:is(a, button, input, select, textarea, .table-scroll):focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+@media (max-width: 680px) {
+  .architecture-flow, .learning-path { grid-template-columns: 1fr; }
+  .article-card { padding: 22px; }
+  .article-hero, .blog-index-hero { padding-inline: 5vw; }
+  .architecture-figure { padding: 14px; }
+  .sort-field { width: 100%; }
+}

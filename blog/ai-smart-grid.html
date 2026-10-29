@@ -15,11 +15,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260802-orange-site">
+  <link rel="stylesheet" href="../styles.css?v=20261029-blog">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889"
      crossorigin="anonymous"></script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BlogPosting","headline":"How AI Is Changing Smart Grids","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-06-01","dateModified":"2026-07-27","image":"https://musaadalruwaili.github.io/assets/project-ai-power.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/ai-smart-grid.html"}
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"How AI Is Changing Smart Grids","author":{"@type":"Person","name":"Dr. Musaad Alruwaili"},"datePublished":"2026-06-01","dateModified":"2026-10-29","image":"https://musaadalruwaili.github.io/assets/project-ai-power.jpg","mainEntityOfPage":"https://musaadalruwaili.github.io/blog/ai-smart-grid.html"}
   </script>
   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fc82194f6110e86fba4b7727f03faee9"})});</script>
 </head>
@@ -39,19 +39,21 @@
       <p class="eyebrow">AI & Smart Grids</p>
       <h1>How AI Is Changing Smart Grids</h1>
       <p class="hero-text">Artificial intelligence is becoming a practical layer for forecasting, monitoring, optimization, and faster decision-making in modern power systems.</p>
-      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Updated July 27, 2026</span><span>7 min read</span><span>Smart grids</span></div>
+      <div class="article-meta"><span>By Dr. Musaad Alruwaili</span><span>Intermediate</span><span>Updated October 29, 2026</span><span>4 min read</span><span>Smart grids</span></div>
     </section>
     <section class="article-tools">
-      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"></ol></aside>
+      <aside class="article-toc" aria-label="Article table of contents"><h2>Contents</h2><ol id="articleToc"><li><a href="#what-you-will-learn">What you will learn</a></li><li><a href="#worked-example-score-a-small-forecast">Worked example: score a small forecast</a></li><li><a href="#why-ai-matters-in-grid-operation">Why AI matters in grid operation</a></li><li><a href="#high-value-applications">High-value applications</a></li><li><a href="#data-quality-comes-first">Data quality comes first</a></li><li><a href="#where-engineers-remain-essential">Where engineers remain essential</a></li><li><a href="#a-practical-starting-roadmap">A practical starting roadmap</a></li><li><a href="#key-takeaways">Key takeaways</a></li><li><a href="#references-and-further-reading">References and further reading</a></li></ol></aside>
     </section>
     <section class="article-layout">
+<article class="article-card learning-summary"><h2 id="what-you-will-learn">What you will learn</h2><ul><li>Choose a measurable forecasting question.</li><li>Compare candidate predictions with a baseline.</li><li>Identify data leakage and operational limits.</li></ul><p><strong>Prerequisites:</strong> Basic power-system measurements and averages; Python is optional.</p></article>
+<article class="article-card "><h2 id="worked-example-score-a-small-forecast">Worked example: score a small forecast</h2><p class="example-note">Synthetic teaching data, not a trained-model benchmark or a utility result.</p><p>For actual demand [100, 110, 120] kW, baseline predictions [95, 115, 130] have absolute errors [5, 5, 10] kW. Candidate predictions [98, 112, 117] have errors [2, 2, 3] kW. Mean absolute error is therefore 6.67 kW and 2.33 kW respectively.</p><p>Three invented samples demonstrate the calculation only. A real comparison needs an unseen time period, a documented baseline, missing-data rules, peak-demand checks, and engineering review.</p><p><a class="inline-link" href="../resources/downloads/forecast-example.csv" download>Download synthetic values (CSV)</a> · <a class="inline-link" href="../resources/downloads/forecast_mae.py" download>Download scoring script (Python)</a></p></article>
       <article class="article-card">
-        <h2>Why AI matters in grid operation</h2>
+        <h2 id="why-ai-matters-in-grid-operation">Why AI matters in grid operation</h2>
         <p>Distribution grids used to be planned around predictable one-way power flow: generation moved through transmission, substations stepped voltage down, and local feeders served customers. That model is changing. Solar rooftops, battery storage, electric vehicles, variable industrial demand, and connected sensors make the distribution network more dynamic than before. The result is a system with more data, more uncertainty, and less time for manual interpretation.</p>
         <p>Artificial intelligence is useful because it can convert measurements into operational context. A voltage reading, current waveform, breaker status, temperature trend, or weather forecast has limited value by itself. When these signals are combined, cleaned, and compared with historical behavior, engineers can detect patterns that are hard to see manually. The value of AI is not magic; it is disciplined pattern recognition, forecasting, ranking, and decision support.</p>
       </article>
       <article class="article-card">
-        <h2>High-value applications</h2>
+        <h2 id="high-value-applications">High-value applications</h2>
         <ul>
           <li><strong>Load forecasting:</strong> predicting demand across hours, days, and seasons.</li>
           <li><strong>Anomaly detection:</strong> finding unusual behavior in voltage, current, frequency, or device data.</li>
@@ -62,17 +64,17 @@
         <p>In practice, the strongest early projects are usually narrow and measurable. A utility or industrial facility may begin with feeder-level demand forecasting, transformer temperature risk, abnormal power-quality events, or solar output prediction. These projects are easier to validate because engineers can compare predictions with actual measurements and quantify the improvement.</p>
       </article>
       <article class="article-card">
-        <h2>Data quality comes first</h2>
+        <h2 id="data-quality-comes-first">Data quality comes first</h2>
         <p>AI models are only as good as the data pipeline behind them. Missing timestamps, inconsistent device names, failed sensors, communication dropouts, and uncalibrated measurements can all create misleading results. Before a model is trusted, the engineering team should define how data is collected, which measurements are authoritative, how outliers are handled, and how model output will be reviewed.</p>
         <p>A practical smart-grid AI workflow usually begins with data inventory. Engineers identify available SCADA tags, historian values, weather inputs, protection events, maintenance records, and field observations. Then they decide which question the model should answer. A focused question such as "Which transformers have abnormal temperature rise compared with load and ambient temperature?" is more useful than a vague objective such as "Use AI to improve the grid."</p>
       </article>
       <article class="article-card">
-        <h2>Where engineers remain essential</h2>
+        <h2 id="where-engineers-remain-essential">Where engineers remain essential</h2>
         <p>The best AI systems do not replace engineers. They support engineers by making patterns easier to see and decisions easier to justify. Practical deployment still requires domain knowledge, cybersecurity, validation, and integration with operating workflows. A model may identify an anomaly, but an engineer must understand whether the signal reflects a real asset problem, a measurement issue, a switching event, or a normal seasonal pattern.</p>
         <p>Engineering review is also necessary for safety. In power systems, a wrong recommendation can affect reliability and equipment life. For that reason, AI should be introduced as decision support first. The model can rank risks, highlight unusual behavior, suggest inspection priorities, or estimate future load. Human operators and engineers should remain responsible for final operational decisions until the system has been thoroughly validated.</p>
       </article>
       <article class="article-card">
-        <h2>A practical starting roadmap</h2>
+        <h2 id="a-practical-starting-roadmap">A practical starting roadmap</h2>
         <ol>
           <li>Select one operational problem with clear value, such as load forecasting, fault-pattern review, or asset-health ranking.</li>
           <li>Collect a small but trustworthy dataset from known devices and documented measurement points.</li>
@@ -83,7 +85,9 @@
         <p>This approach keeps the project grounded. A modest model that engineers trust is more valuable than a complex model that cannot be explained, validated, or maintained.</p>
         <div class="article-nav"><a class="button primary" href="index.html">Back to Blog</a><a class="button secondary" href="../index.html#contact">Discuss Collaboration</a></div>
       </article>
-    </section>
+    <article class="article-card "><h2 id="key-takeaways">Key takeaways</h2><ul><li>Use the same test period and units for every method.</li><li>Keep future information out of training and preprocessing.</li><li>Review peak errors as well as average error before operational use.</li></ul></article>
+<article class="article-card "><h2 id="references-and-further-reading">References and further reading</h2><ol><li><a class="inline-link" href="https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error">scikit-learn: Mean absolute error</a></li><li><a class="inline-link" href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">NIST SP 800-82 Rev. 3: Guide to OT Security</a></li></ol><p>Examples explicitly marked as illustrative are teaching material, not field measurements.</p></article>
+</section>
     <section class="section related-reading">
       <div class="section-heading"><p class="eyebrow">Related Reading</p><h2>Continue the topic.</h2></div>
       <div class="blog-grid latest-grid">
@@ -94,7 +98,7 @@
     </section>
   </main>
   <footer class="site-footer"><p>Dr. Musaad Alruwaili</p><div class="footer-meta"><span>Smart Energy Systems | Renewable Energy | AI | IoT</span><a href="../publications.html">Publications</a><a href="../experience.html">Experience</a><a href="../education.html">Education</a><a href="../teaching.html">Teaching</a><a href="../about-this-site.html">About This Site</a><a href="../editorial-policy.html">Editorial Policy</a><a href="../privacy-policy.html">Privacy Policy</a></div></footer>
-  <script src="../script.js?v=20260728-profile-ar"></script>
+  <script src="../script.js?v=20261029-blog"></script>
 </body>
 </html>
 

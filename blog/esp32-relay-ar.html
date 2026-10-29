@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التحكم بمرحل باستخدام ESP32: تجربة تعليمية | د. مساعد الرويلي</title>
+  <meta name="description" content="تجربة عربية للتحكم بمرحل من المنفذ التسلسلي، مع كود قابل للتحميل وملاحظات التوصيل واختبار المنطق.">
+  <meta name="google-adsense-account" content="ca-pub-1892379836098889">
+  <link rel="canonical" href="https://musaadalruwaili.github.io/blog/esp32-relay-ar.html">
+  <link rel="alternate" hreflang="ar" href="https://musaadalruwaili.github.io/blog/esp32-relay-ar.html">
+  <link rel="alternate" hreflang="en" href="https://musaadalruwaili.github.io/blog/arduino-esp32-relay.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="التحكم بمرحل باستخدام ESP32: تجربة تعليمية">
+  <meta property="og:description" content="تجربة عربية للتحكم بمرحل من المنفذ التسلسلي، مع كود قابل للتحميل وملاحظات التوصيل واختبار المنطق.">
+  <meta property="og:url" content="https://musaadalruwaili.github.io/blog/esp32-relay-ar.html">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:image" content="https://musaadalruwaili.github.io/assets/banner.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Naskh+Arabic:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261029-blog">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "التحكم بمرحل باستخدام ESP32: تجربة تعليمية", "description": "تجربة عربية للتحكم بمرحل من المنفذ التسلسلي، مع كود قابل للتحميل وملاحظات التوصيل واختبار المنطق.", "author": {"@type": "Person", "name": "Dr. Musaad Alruwaili"}, "datePublished": "2026-10-29", "dateModified": "2026-10-29", "inLanguage": "ar", "mainEntityOfPage": "https://musaadalruwaili.github.io/blog/esp32-relay-ar.html", "image": "https://musaadalruwaili.github.io/assets/banner.jpg"}</script>
+  <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fc82194f6110e86fba4b7727f03faee9"})});</script>
+</head>
+<body class="article-page native-ar">
+<header class="site-header">
+    <a class="brand" href="../index.html"><span class="brand-mark">MA</span><span>د. مساعد الرويلي</span></a>
+    <button class="nav-toggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="header-actions"><nav class="site-nav" aria-label="Primary navigation"><a href="../index.html#topics">الموضوعات</a><a href="../research.html">البحث العلمي</a><a href="../projects.html">المشاريع</a><a href="index.html">المدونة</a><a href="../resources/index.html">الموارد</a><a href="../index.html#contact">التواصل</a></nav><a class="language-toggle" href="arduino-esp32-relay.html" lang="en" hreflang="en">English</a></div>
+  </header>
+<main>
+  <section class="article-hero"><p class="eyebrow">الأنظمة المضمنة</p><h1>التحكم بمرحل باستخدام ESP32: تجربة تعليمية</h1><p class="hero-text">تجربة عربية للتحكم بمرحل من المنفذ التسلسلي، مع كود قابل للتحميل وملاحظات التوصيل واختبار المنطق.</p><div class="article-meta"><span>د. مساعد الرويلي</span><span>مبتدئ</span><span>تحديث <time datetime="2026-10-29">٢٩ أكتوبر ٢٠٢٦</time></span><span>3 دقائق قراءة تقريبًا</span></div></section>
+  <section class="article-tools"><aside class="article-toc" aria-label="فهرس المقال"><h2>المحتويات</h2><ol id="articleToc"><li><a href="#ماذا-ستتعلم">ماذا ستتعلم؟</a></li><li><a href="#فكرة-التجربة">فكرة التجربة</a></li><li><a href="#التوصيل-والتحقق-من-المكونات">التوصيل والتحقق من المكونات</a></li><li><a href="#الكود-وأوامر-التشغيل">الكود وأوامر التشغيل</a></li><li><a href="#سجل-اختبار-قابل-للتكرار">سجل اختبار قابل للتكرار</a></li><li><a href="#الخلاصة-والخطوة-التالية">الخلاصة والخطوة التالية</a></li><li><a href="#المراجع">المراجع</a></li></ol></aside></section>
+  <section class="article-layout"><article class="article-card "><h2 id="ماذا-ستتعلم">ماذا ستتعلم؟</h2><ul><li>ربط أمر برمجي بحالة خرج GPIO.</li><li>ضبط الفرق بين المرحل الفعّال بالمستوى المنخفض والمرتفع.</li><li>توثيق خطوات اختبار بسيطة يمكن تكرارها.</li></ul><p><strong>المتطلبات السابقة:</strong> Arduino IDE وحزمة لوحات Espressif ولوحة ESP32 ووحدة مرحل موثقة متوافقة مع منطق ٣٫٣ فولت.</p></article>
+<article class="article-card "><h2 id="فكرة-التجربة">فكرة التجربة</h2><p>يرسل ESP32 إشارة تحكم إلى وحدة المرحل. يفصل المرحل أو يصل دائرته الخارجية وفق تصميمه. نبدأ بالتعرف إلى استجابة الوحدة دون توصيل حمل إلى أطراف التلامس، ونستخدم منفذ Serial Monitor لإرسال أوامر واضحة.</p><p>هذه تجربة تعليمية وليست وحدة حماية أو متحكمًا صناعيًا. لم يُختبر المثال على عتاد فعلي ضمن هذا التحديث.</p></article>
+<article class="article-card "><h2 id="التوصيل-والتحقق-من-المكونات">التوصيل والتحقق من المكونات</h2><ul><li>افصل التغذية قبل التوصيل، وتحقق من مخطط لوحتك. يستخدم المثال GPIO 23 على لوحة ESP32 DevKit التقليدية؛ وقد يلزم تغييره للوحات أخرى.</li><li>صِل خرج التحكم بمدخل الوحدة فقط إذا كان موثقًا بأنه متوافق مع ٣٫٣ فولت. لا تقد ملف المرحل مباشرة من منفذ GPIO، ولا تدخل ٥ فولت إليه.</li><li>غذِّ الوحدة وفق وثائقها، واتبع متطلبات الأرضي والعزل الخاصة بها بدل افتراض توصيل جميع نقاط الأرضي.</li><li>اترك أطراف حمل المرحل دون توصيل في الاختبار الأول. هذه الصفحة لا تتناول توصيل جهد الشبكة الكهربائية.</li></ul></article>
+<article class="article-card "><h2 id="الكود-وأوامر-التشغيل">الكود وأوامر التشغيل</h2><p>بعد الإعداد يضع البرنامج الخرج في حالة OFF. أرسل <code dir="ltr">1</code> للتشغيل و<code dir="ltr">0</code> للإيقاف. تُتجاهل الأحرف الأخرى ونهايات الأسطر. اضبط سرعة Serial Monitor على <code dir="ltr">115200</code>.</p><pre dir="ltr"><code>// ESP32 low-voltage relay bench demo. No Wi-Fi or credentials required.
+// Classic ESP32 DevKit example: verify your board&#x27;s GPIO map before wiring.
+#include &lt;Arduino.h&gt;
+constexpr uint8_t RELAY_PIN = 23;
+constexpr bool ACTIVE_LOW = true;  // Match the relay module datasheet.
+constexpr uint8_t RELAY_ON = ACTIVE_LOW ? LOW : HIGH;
+constexpr uint8_t RELAY_OFF = ACTIVE_LOW ? HIGH : LOW;
+
+void setup() {
+  pinMode(RELAY_PIN, OUTPUT);
+  digitalWrite(RELAY_PIN, RELAY_OFF); // Request OFF immediately after output setup.
+  Serial.begin(115200);
+  Serial.println(&quot;Bench demo: 1=ON, 0=OFF. Starts OFF.&quot;);
+}
+
+void loop() {
+  if (Serial.available() &gt; 0) {
+    const char command = Serial.read();
+    if (command == &#x27;1&#x27; || command == &#x27;0&#x27;) {
+      const bool on = command == &#x27;1&#x27;;
+      digitalWrite(RELAY_PIN, on ? RELAY_ON : RELAY_OFF);
+      Serial.println(on ? &quot;Relay ON&quot; : &quot;Relay OFF&quot;);
+    }
+  }
+}
+</code></pre><p>غيّر <code dir="ltr">ACTIVE_LOW</code> وفق وثائق الوحدة. يضبط البرنامج مستوى الإيقاف مباشرة بعد تهيئة الخرج. هذا لا يضمن حالة آمنة خلال التهيئة أو الإقلاع أو إعادة التشغيل أو انقطاع التغذية؛ تتطلب الأحمال ذات العواقب حماية عتادية مناسبة.</p><a class="button primary" href="../resources/downloads/esp32-relay-demo.zip" download>تحميل المشروع وملاحظات التوصيل — ZIP</a><p>ملاحظات المشروع داخل الملف بالإنجليزية، والكود مشروح في هذه الصفحة.</p></article>
+<article class="article-card "><h2 id="سجل-اختبار-قابل-للتكرار">سجل اختبار قابل للتكرار</h2><div class="table-scroll" tabindex="0" role="region" aria-label="خطوات الاختبار"><table><caption>سجّل طراز اللوحة والوحدة والتغذية ونتيجة كل خطوة</caption><thead><tr><th scope="col">الخطوة</th><th scope="col">النتيجة المتوقعة</th></tr></thead><tbody><tr><th scope="row">إعادة التشغيل</th><td>OFF بعد اكتمال الإعداد</td></tr><tr><th scope="row">إرسال 1</th><td>ON</td></tr><tr><th scope="row">إرسال 0</th><td>OFF</td></tr><tr><th scope="row">إرسال x أو سطر جديد</th><td>لا تتغير الحالة</td></tr></tbody></table></div><p>إذا كانت الاستجابة معكوسة، راجع منطق الوحدة وإعدادها قبل متابعة التجربة. تحقق من الاستجابة على الوحدة الفعلية ولا تعتمد على رسالة المنفذ التسلسلي وحدها.</p></article>
+<article class="article-card "><h2 id="الخلاصة-والخطوة-التالية">الخلاصة والخطوة التالية</h2><ul><li>تحقق من توافق المنطق ورقم المنفذ قبل الرفع.</li><li>ابدأ دون حمل ووثّق كل أمر ونتيجته.</li><li>الحالة البرمجية الافتراضية لا تغطي أعطال التغذية والإقلاع.</li></ul><p>انتقل إلى <a class="inline-link" href="scada-basics-ar.html">دليل SCADA بالعربية</a> لتربط مفهوم الخرج بالمراقبة والإنذارات.</p></article>
+<article class="article-card "><h2 id="المراجع">المراجع</h2><ol><li><a class="inline-link" href="https://docs.espressif.com/projects/arduino-esp32/en/latest/api/gpio.html">توثيق GPIO الرسمي من Espressif — بالإنجليزية</a></li><li><a class="inline-link" href="https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html">تثبيت حزمة Arduino-ESP32 — بالإنجليزية</a></li></ol></article></section>
+</main>
+<footer class="site-footer"><p>د. مساعد الرويلي</p><div class="footer-meta"><a href="index.html">جميع المقالات</a><a href="../resources/index.html">الموارد</a><a href="../privacy-policy.html">سياسة الخصوصية بالإنجليزية</a><a href="../index.html#contact">التواصل</a></div></footer>
+<script src="../script.js?v=20261029-blog"></script>
+</body>
+</html>

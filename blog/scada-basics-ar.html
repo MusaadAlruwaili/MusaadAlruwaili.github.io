@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل المبتدئ إلى أنظمة SCADA | د. مساعد الرويلي</title>
+  <meta name="description" content="شرح عربي لبنية SCADA من الحساس إلى شاشة المشغّل، مع مثال تعليمي للإنذارات وجدول قابل للتحميل.">
+  <meta name="google-adsense-account" content="ca-pub-1892379836098889">
+  <link rel="canonical" href="https://musaadalruwaili.github.io/blog/scada-basics-ar.html">
+  <link rel="alternate" hreflang="ar" href="https://musaadalruwaili.github.io/blog/scada-basics-ar.html">
+  <link rel="alternate" hreflang="en" href="https://musaadalruwaili.github.io/blog/beginner-guide-to-scada.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="دليل المبتدئ إلى أنظمة SCADA">
+  <meta property="og:description" content="شرح عربي لبنية SCADA من الحساس إلى شاشة المشغّل، مع مثال تعليمي للإنذارات وجدول قابل للتحميل.">
+  <meta property="og:url" content="https://musaadalruwaili.github.io/blog/scada-basics-ar.html">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:image" content="https://musaadalruwaili.github.io/assets/banner.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Noto+Naskh+Arabic:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=20261029-blog">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1892379836098889" crossorigin="anonymous"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "دليل المبتدئ إلى أنظمة SCADA", "description": "شرح عربي لبنية SCADA من الحساس إلى شاشة المشغّل، مع مثال تعليمي للإنذارات وجدول قابل للتحميل.", "author": {"@type": "Person", "name": "Dr. Musaad Alruwaili"}, "datePublished": "2026-10-29", "dateModified": "2026-10-29", "inLanguage": "ar", "mainEntityOfPage": "https://musaadalruwaili.github.io/blog/scada-basics-ar.html", "image": "https://musaadalruwaili.github.io/assets/banner.jpg"}</script>
+  <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"fc82194f6110e86fba4b7727f03faee9"})});</script>
+</head>
+<body class="article-page native-ar">
+<header class="site-header">
+    <a class="brand" href="../index.html"><span class="brand-mark">MA</span><span>د. مساعد الرويلي</span></a>
+    <button class="nav-toggle" type="button" aria-label="فتح قائمة التنقل" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="header-actions">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="../index.html#topics">الموضوعات</a><a href="../research.html">البحث العلمي</a><a href="../projects.html">المشاريع</a><a href="index.html">المدونة</a><a href="../resources/index.html">الموارد</a><a href="../index.html#contact">التواصل</a>
+      </nav><a class="language-toggle" href="beginner-guide-to-scada.html" lang="en" hreflang="en">English</a>
+    </div>
+  </header>
+<main>
+  <section class="article-hero"><p class="eyebrow">الأتمتة والمراقبة</p><h1>دليل المبتدئ إلى أنظمة SCADA</h1><p class="hero-text">شرح عربي لبنية SCADA من الحساس إلى شاشة المشغّل، مع مثال تعليمي للإنذارات وجدول قابل للتحميل.</p><div class="article-meta"><span>د. مساعد الرويلي</span><span>مبتدئ</span><span>تحديث <time datetime="2026-10-29">٢٩ أكتوبر ٢٠٢٦</time></span><span>3 دقائق قراءة تقريبًا</span></div></section>
+  <section class="article-tools"><aside class="article-toc" aria-label="فهرس المقال"><h2>المحتويات</h2><ol id="articleToc"><li><a href="#ماذا-ستتعلم">ماذا ستتعلم؟</a></li><li><a href="#ما-المقصود-بـ-scada">ما المقصود بـ SCADA؟</a></li><li><a href="#من-الحساس-إلى-قرار-المشغ-ل">من الحساس إلى قرار المشغّل</a></li><li><a href="#مثال-تطبيقي-إنذار-ارتفاع-مستوى-الخزان">مثال تطبيقي: إنذار ارتفاع مستوى الخزان</a></li><li><a href="#الأمن-جزء-من-التصميم">الأمن جزء من التصميم</a></li><li><a href="#خلاصة-ومسار-تعل-م">خلاصة ومسار تعلّم</a></li><li><a href="#المراجع">المراجع</a></li></ol></aside></section>
+  <section class="article-layout"><article class="article-card "><h2 id="ماذا-ستتعلم">ماذا ستتعلم؟</h2><ul><li>تتبّع القياس من جهاز الحقل إلى شاشة المشغّل وسجل البيانات.</li><li>التمييز بين ظهور الإنذار والإقرار به وعودة الحالة إلى الطبيعي.</li><li>فهم أثر جودة البيانات وانقطاع الاتصال.</li></ul><p><strong>المتطلبات السابقة:</strong> معرفة أولية بالقياسات الكهربائية. لا تحتاج إلى برنامج SCADA لتتبّع المثال.</p></article>
+<article class="article-card "><h2 id="ما-المقصود-بـ-scada">ما المقصود بـ SCADA؟</h2><p>يشير الاختصار إلى التحكم الإشرافي وجمع البيانات. يجمع النظام قياسات العملية، ويعرضها للمشغّل، ويسجّلها للتحليل، وقد يدعم إرسال أوامر تشغيل وفق الصلاحيات والإجراءات المعتمدة. تُستخدم هذه البنية في شبكات الكهرباء والمياه والعمليات الصناعية.</p><p>النظام ليس شاشة واحدة؛ بل سلسلة تشمل أجهزة الحقل، ووحدات التحكم، والاتصالات، وواجهات التشغيل، وسجل البيانات التاريخي. تعتمد فائدة الشاشة على صحة القياس وتوقيته ووحدته وجودته.</p></article>
+<article class="article-card "><h2 id="من-الحساس-إلى-قرار-المشغ-ل">من الحساس إلى قرار المشغّل</h2><figure class="architecture-figure"><figcaption>مسار قياس مستوى خزان</figcaption><ol class="architecture-flow"><li><strong>حساس المستوى</strong><span>قياس من ٠ إلى ١٠٠٪</span></li><li><strong dir="ltr">PLC / RTU</strong><span>القيمة والوقت والجودة</span></li><li><strong>شبكة الاتصال</strong><span>نقل بيانات العملية</span></li><li><strong>الشاشة والسجل</strong><span>عرض واتجاهات وإنذارات</span></li></ol></figure><p>يقيس الحساس مستوى الخزان، وتقرأ وحدة التحكم الإشارة وتربطها باسم واضح ووقت وجودة. تنقل الشبكة البيانات إلى الشاشة والسجل التاريخي. إذا توقف التحديث، ينبغي إظهار أن القيمة قديمة بدل تقديمها على أنها قياس جديد.</p></article>
+<article class="article-card "><h2 id="مثال-تطبيقي-إنذار-ارتفاع-مستوى-الخزان">مثال تطبيقي: إنذار ارتفاع مستوى الخزان</h2><p class="example-note">هذا سيناريو تعليمي افتراضي، وليس إعدادات تشغيل فعلية أو نتائج قياسات ميدانية.</p><p>افترض أن المستوى بلغ ٨٢٪ عند الساعة ١٠:٠٠:٠٠ وبقي فوق الحد. يظهر الإنذار عند ١٠:٠٠:٠٥ بعد تأخير قدره خمس ثوانٍ. يبقى الإنذار عند ٧٩٪، ويعود إلى الطبيعي عند ٧٥٪ أو أقل. الفرق بين حد التشغيل وحد الإلغاء يقلل تكرار تبدّل الحالة قرب ٨٠٪.</p><div class="table-scroll" tabindex="0" role="region" aria-label="جدول إنذارات تعليمي"><table><caption>إعدادات توضيحية تحتاج إلى مراجعة هندسية قبل أي استخدام تشغيلي</caption><thead><tr><th scope="col">الحالة</th><th scope="col">التفعيل</th><th scope="col">العودة للطبيعي</th><th scope="col">فحص المشغّل</th></tr></thead><tbody><tr><th scope="row">ارتفاع المستوى</th><td>٨٠٪ أو أكثر لمدة ٥ ثوانٍ</td><td>٧٥٪ أو أقل</td><td>التحقق من المستوى وحالة التدفق الداخل</td></tr><tr><th scope="row">انقطاع الاتصال</th><td>لا تحديث صالح لمدة ١٠ ثوانٍ</td><td>عودة البيانات الصالحة</td><td>التحقق من الوقت والجودة ومسار الاتصال</td></tr></tbody></table></div><p>الإقرار بالإنذار يسجل أن المشغّل اطّلع عليه؛ ولا يعني زوال السبب الفيزيائي. سجّل وقت التفعيل والإقرار والعودة إلى الطبيعي كلًا على حدة. تُحدّد الأولويات والإجراءات الفعلية بناءً على عواقب العملية وزمن الاستجابة المطلوب.</p><a class="inline-link" href="../resources/downloads/scada-alarm-example.csv" download>تحميل جدول المثال بصيغة CSV — الحقول بالإنجليزية</a></article>
+<article class="article-card "><h2 id="الأمن-جزء-من-التصميم">الأمن جزء من التصميم</h2><p>تتطلب مراقبة الأنظمة الصناعية مراعاة الاعتمادية ومتطلبات العملية إلى جانب الأمن. يقدّم دليل NIST المشار إليه أدناه إرشادات لأمن التقنية التشغيلية. راجع صلاحيات الوصول، وفصل الشبكات، والوصول البعيد، والنسخ الاحتياطية ضمن تصميم النظام وإجراءات تشغيله.</p></article>
+<article class="article-card "><h2 id="خلاصة-ومسار-تعل-م">خلاصة ومسار تعلّم</h2><ul><li>احتفظ بوحدة القياس والوقت والجودة مع كل قيمة.</li><li>اربط كل إنذار بسبب واضح وفحص يمكن للمشغّل تنفيذه.</li><li>ميّز الحالة الطبيعية من جودة البيانات وحالة الاتصال.</li></ul><p>ابدأ بـ <a class="inline-link" href="esp32-relay-ar.html">تجربة ESP32</a> لفهم المخرجات، ثم عد إلى بنية SCADA، وانتقل إلى <a class="inline-link" href="ai-smart-grid.html" lang="en">تحليل الشبكات الذكية بالإنجليزية</a>.</p></article>
+<article class="article-card "><h2 id="المراجع">المراجع</h2><ol><li><a class="inline-link" href="https://csrc.nist.gov/pubs/sp/800/82/r3/final">دليل NIST لأمن التقنية التشغيلية — بالإنجليزية</a></li></ol><p>المثال العددي والمخطط مادة تعليمية أُعدّت لهذا الدليل؛ لا ينسبان إلى منشأة أو مشروع ميداني.</p></article></section>
+</main>
+<footer class="site-footer"><p>د. مساعد الرويلي</p><div class="footer-meta"><a href="index.html">جميع المقالات</a><a href="../resources/index.html">الموارد</a><a href="../privacy-policy.html">سياسة الخصوصية بالإنجليزية</a><a href="../index.html#contact">التواصل</a></div></footer>
+<script src="../script.js?v=20261029-blog"></script>
+</body>
+</html>
