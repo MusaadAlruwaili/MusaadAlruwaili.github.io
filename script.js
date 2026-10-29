@@ -85,7 +85,7 @@ function updateTranslateControls() {
     link.classList.add("notranslate");
     link.setAttribute("translate", "no");
     link.setAttribute("aria-pressed", String(arabicIsActive));
-    link.textContent = arabicIsActive ? "English" : "العربية";
+    link.textContent = arabicIsActive ? "English" : "AR | \u0627\u0644\u0639\u0631\u0628\u064a\u0629";
     link.setAttribute(
       "aria-label",
       arabicIsActive ? "Return to English" : "Translate this site to Arabic"
